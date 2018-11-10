@@ -8,6 +8,36 @@ body {
   width: 100vw;
 }
 
+.points {
+  position: absolute;
+  left: 2vw;
+  top: 2vh;
+  z-index: 1;
+}
+
+.points span {
+  font-size: 40px;
+}
+
+.healthBar {
+  height: 5vh;
+  width: 25vw;
+  border: 2.5px solid black;
+  background-color: black;
+  position: absolute;
+  right: 2vw;
+  top: 2vh;
+  z-index: 1;
+}
+
+.healthBarReducing {
+  height: 5vh;
+  width: 25vw;
+  background-color: red;
+  position: absolute;
+  z-index: 1;
+}
+
 /* Keyframe Animation */
 @keyframes cloudsMovement {
   0% {
