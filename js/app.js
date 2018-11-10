@@ -56,3 +56,68 @@ $(document).ready(function() {
     });
   }
 });
+
+$("body").keydown(function (e) {
+  //start the game with spacebar
+  if(e.keyCode == 38){
+
+
+  }
+}
+
+function characterPosition(){
+  // Find the left and top edge of the character
+  characterLeft = character.offset().left;
+  characterTop = character.offset().top;
+
+  // Find right and bottom edge of the character
+  characterRight = characterLeft + character.width();
+  characterBott = characterTop + character.height();
+};
+
+function boardPosition(){
+  // Find the left and top edge of the board
+  boardLeft = board.offset().left;
+  boardTop = board.offset().top;
+
+  // Find right and bottom edge of the board
+  boardRight = boardLeft + board.width();
+  boardBott = boardTop + board.height();
+}
+
+function jump(){
+  jumpInt = setInterval(function(){
+    characterPosition();
+    boardPosition();
+
+    //move the character and check if it has hit the ground
+    setCharPos();
+    move();
+    verticalCollisions();
+  },5)
+}
+
+function setCharPos(){
+  character.css({
+    "top": ypos + "px"
+  });
+}
+
+function move(){
+  yvelocity += yacceleration;
+  ypos+=yvelocity;
+};
+
+function verticalCollisions(){
+  if (jumping == true) {
+    jumping = false;
+  //land on ground
+  }else{
+    clearInterval(jumpInt);
+    //reset character variables
+    yvelocity = 0;
+    yacceleration = 0;
+    ypos = 259;
+    setCharPos();
+    pressed = false;
+}
