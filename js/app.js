@@ -1,7 +1,7 @@
 $(document).ready(function() {
   var player = $(".player");
   var board = $(".container");
-<<<<<<< HEAD
+
   var floor = $(".floor");
   var floors = []
   function getFloors(){
@@ -11,13 +11,13 @@ $(document).ready(function() {
     console.log(floors)
   }
   getFloors();
-=======
+
   var bullet;
   var bulletLeft;
   var bulletRight;
   var bulletTop;
   var bulletRight;
->>>>>>> 9b172f4b466876cb9afb3ea4ec259ce7514c7ae0
+
 
   var keyPress = [];
 
@@ -57,12 +57,12 @@ $(document).ready(function() {
   function movePlayer() {
     boardPosition();
     characterPosition();
-<<<<<<< HEAD
+
 
     floorPosition();
 
-=======
->>>>>>> 9b172f4b466876cb9afb3ea4ec259ce7514c7ae0
+
+
     //horizontal movement
     if (playerRight <= boardRight) {
       if (keyPress[39]) {
@@ -84,7 +84,7 @@ $(document).ready(function() {
     });
   }
 
-<<<<<<< HEAD
+
   function checkFloating(){
 
     if ((playerBottom < floorsTop[1])) {
@@ -122,8 +122,7 @@ $(document).ready(function() {
   var floorsTop = [];
   var floorsBott = [];
 
-=======
->>>>>>> 9b172f4b466876cb9afb3ea4ec259ce7514c7ae0
+
   $("body").keydown(function(e) {
     //start the game with spacebar
     if (e.keyCode == 38 && pressed == false && jumping == false) {
@@ -177,11 +176,11 @@ $(document).ready(function() {
   function jump() {
     jumpInt = setInterval(function() {
       boardPosition();
-<<<<<<< HEAD
+
       floorPosition();
-=======
+
       characterPosition();
->>>>>>> 9b172f4b466876cb9afb3ea4ec259ce7514c7ae0
+
 
       //move the player and check if it has hit the ground
       setCharPos();
@@ -260,14 +259,14 @@ $(document).ready(function() {
 
   setInterval(function() {
     movePlayer();
-<<<<<<< HEAD
+
     console.log(yacceleration)
     if (yacceleration == 0) {
       checkFloating();
 
     }
   }, 5);
-=======
-  }, 10);
->>>>>>> 9b172f4b466876cb9afb3ea4ec259ce7514c7ae0
+
+
+
 });
