@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", function() {
+  var score = 0;
+
   function dayAndNight() {
-    var score = 49;
+    scoringSystem();
 
     if (score <= 50) {
       document
@@ -22,4 +24,11 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   dayAndNight();
+
+  function scoringSystem() {
+    if (document.querySelector("#coin1") !== null) {
+      score += 100;
+      console.log(score);
+    }
+  }
 });
