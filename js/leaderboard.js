@@ -33,7 +33,7 @@ $(document).ready(function() {
     var cell = row.insertCell(0);
     cell.innerHTML = "<b>Name</b>";
     var cell = row.insertCell(1);
-    cell.innerHTML = "<b>Score</b>";
+    cell.innerHTML = "<b>Coins</b>";
 
     for (var i = 0; i < leaderboard.length; i++) {
       var row = table.insertRow(1);
