@@ -67,17 +67,11 @@ $(document).ready(function() {
     floorsTop[0] = floors[0].offset().top;
     floorsTop[1] = floors[1].offset().top;
 
-    //horizontal movement
-    // if (playerRight <= boardRight) {
-    //   if (keyPress[39]) {
-    //     playerXpos += speed;
-    //   }
-    // }
     if (keyPress[39]) {
-      console.log("floors left " + floorsLeft[0]);
-      console.log("player right " + playerRight);
-      console.log("player bottom " + playerBottom);
-      console.log("floors top " + floorsTop);
+      // console.log("floors left " + floorsLeft[0]);
+      // console.log("player right " + playerRight);
+      // console.log("player bottom " + playerBottom);
+      // console.log("floors top " + floorsTop);
       if (playerRight <= floorsLeft[0] && playerBottom >= floorsTop[0]) {
         playerXpos += speed;
         player.css({
@@ -98,7 +92,7 @@ $(document).ready(function() {
           left: playerXpos + "px"
         });
       } else {
-        console.log("yeet");
+        // console.log("yeet");
       }
     }
     if (playerLeft >= boardLeft) {
