@@ -25,12 +25,13 @@ $(document).ready(function() {
   function setupLeaderboard() {
     retrieveLeaderboard();
     var table = document.getElementById("scoreTable");
+    table.innerHTML = "";
     var header = table.createTHead();
     var row = header.insertRow(0);
     var cell = row.insertCell(0);
-    cell.innerHTML = "<u>Name</u>";
+    cell.innerHTML = "<b>Name</b>";
     var cell = row.insertCell(1);
-    cell.innerHTML = "<u>Score</ul>";
+    cell.innerHTML = "<b>Score</b>";
 
     for (var i = 0; i < leaderboard.length; i++) {
       var row = table.insertRow(1);
@@ -41,5 +42,9 @@ $(document).ready(function() {
     }
   }
 
+  // Mock scores
+  // addScore("Player1", 100);
+  // addScore("Player2", 50);
+  // addScore("Player3", 25);
   setupLeaderboard();
 });

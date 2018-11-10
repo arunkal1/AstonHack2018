@@ -4,9 +4,10 @@ body {
 }
 
 .scores {
+  text-align: center;
 }
 
 #scoreTable {
-  text-align: center;
+  width: 300px;
   margin: auto;
 }
