@@ -36,17 +36,11 @@ $(document).ready(function() {
     if (playerRight <= boardRight) {
       if (keyPress[39]) {
         playerXpos += speed;
-        $(".player").html(
-          '<img src="images/astro-right.png" height="60px" alt="animated">'
-        );
       }
     }
     if (playerLeft >= boardLeft) {
       if (keyPress[37]) {
         playerXpos -= speed;
-        $(".player").html(
-          '<img src="images/astro-left.png" height="60px" alt="animated">'
-        );
       }
     }
     //Changing player position
