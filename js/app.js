@@ -17,21 +17,9 @@ $(document).ready(function() {
   });
 
   function movePlayer() {
-    //Find left and top edge of the board
-    var boardLeft = board.offset().left;
-    var boardTop = board.offset().top;
+    boardPosition()
 
-    //find right and bottom edge of board
-    var boardRight = boardLeft + board.width();
-    var boardBottom = boardTop + board.height();
-
-    //Find left and top edge of the player
-    var playerLeft = player.offset().left;
-    var playerTop = player.offset().top;
-
-    //find right and bottom edge of player
-    var playerRight = playerLeft + player.width();
-    var playerBottom = playerTop + player.height();
+    characterPosition()
 
     //horizontal movement
 
