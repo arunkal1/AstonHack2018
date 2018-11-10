@@ -13,3 +13,21 @@
   position: relative;
   background: black;
 }
+
+.floor{
+  height: 10px;
+  width: 100px;
+  background: greenyellow;
+
+  position: absolute;
+}
+
+#floor1{
+  top: 450px;
+  left: 100px;
+}
+
+#floor2{
+  top: 400px;
+  left: 200px;
+}
