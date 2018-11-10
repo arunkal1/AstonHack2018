@@ -3,12 +3,12 @@ $(document).ready(function() {
   var board = $(".container");
 
   var floor = $(".floor");
-  var floors = []
-  function getFloors(){
-    for(i of [1,2]){
-      floors.push($("#floor"+i))
+  var floors = [];
+  function getFloors() {
+    for (i of [1, 2]) {
+      floors.push($("#floor" + i));
     }
-    console.log(floors)
+    // console.log(floors);
   }
   getFloors();
 
@@ -18,10 +18,9 @@ $(document).ready(function() {
   var bulletTop;
   var bulletRight;
 
-
   var keyPress = [];
 
-  var speed = 3;
+  var speed = 1;
 
   var playerRight;
   var playerLeft;
@@ -47,6 +46,11 @@ $(document).ready(function() {
   var playerXpos = 0;
   var playerYpos = 0;
 
+  var floorsLeft = [];
+  var floorsRight = [];
+  var floorsTop = [];
+  var floorsBott = [];
+
   $(document).keydown(function(event) {
     keyPress[event.which] = true;
   });
@@ -54,40 +58,66 @@ $(document).ready(function() {
     keyPress[event.which] = false;
   });
 
+  floorPosition();
   function movePlayer() {
     boardPosition();
     characterPosition();
-
-
-    floorPosition();
-
-
+    floorsLeft[0] = floors[0].offset().left;
+    floorsLeft[1] = floors[1].offset().left;
+    floorsTop[0] = floors[0].offset().top;
+    floorsTop[1] = floors[1].offset().top;
 
     //horizontal movement
-    if (playerRight <= boardRight) {
-      if (keyPress[39]) {
+    // if (playerRight <= boardRight) {
+    //   if (keyPress[39]) {
+    //     playerXpos += speed;
+    //   }
+    // }
+    if (keyPress[39]) {
+      console.log("floors left " + floorsLeft[0]);
+      console.log("player right " + playerRight);
+      console.log("player bottom " + playerBottom);
+      console.log("floors top " + floorsTop);
+      if (playerRight <= floorsLeft[0] && playerBottom >= floorsTop[0]) {
         playerXpos += speed;
+        player.css({
+          left: playerXpos + "px"
+        });
+      } else if (
+        floorsLeft[0] <= playerRight &&
+        playerRight <= floorsLeft[1] &&
+        playerBottom <= floorsTop[0]
+      ) {
+        playerXpos += speed;
+        player.css({
+          left: playerXpos + "px"
+        });
+      } else if (floorsLeft[1] <= playerRight && playerBottom <= floorsTop[1]) {
+        playerXpos += speed;
+        player.css({
+          left: playerXpos + "px"
+        });
+      } else {
+        console.log("yeet");
       }
     }
     if (playerLeft >= boardLeft) {
       if (keyPress[37]) {
+        console.log("yeet");
         playerXpos -= speed;
+        player.css({
+          left: playerXpos + "px"
+        });
       }
     }
     //Shooting control
     if (keyPress[32]) {
       shoot();
     }
-    //Changing player position
-    player.css({
-      left: playerXpos + "px"
-    });
   }
 
-
-  function checkFloating(){
-
-    if ((playerBottom < floorsTop[1])) {
+  function checkFloating() {
+    if (playerBottom < floorsTop[1]) {
       yacceleration = 0.1;
       setCharPos();
       move();
@@ -117,12 +147,6 @@ $(document).ready(function() {
   var boardTop;
   var boardBott;
 
-  var floorsLeft = [];
-  var floorsRight = [];
-  var floorsTop = [];
-  var floorsBott = [];
-
-
   $("body").keydown(function(e) {
     //start the game with spacebar
     if (e.keyCode == 38 && pressed == false && jumping == false) {
@@ -133,7 +157,6 @@ $(document).ready(function() {
       pressed = true;
     }
   });
-
 
   function characterPosition() {
     // Find the left and top edge of the player
@@ -163,10 +186,10 @@ $(document).ready(function() {
     boardBott = boardTop + board.height();
   }
 
-  function floorPosition(){
-    for(floor of floors){
+  function floorPosition() {
+    for (floor of floors) {
       floorsLeft.push(floor.offset().left);
-      floorsTop.push( floor.offset().top);
+      floorsTop.push(floor.offset().top);
 
       floorsRight.push(floor.offset().left + floor.width());
       floorsBott.push(floor.offset().top + floor.height());
@@ -177,10 +200,9 @@ $(document).ready(function() {
     jumpInt = setInterval(function() {
       boardPosition();
 
-      floorPosition();
+      // floorPosition();
 
       characterPosition();
-
 
       //move the player and check if it has hit the ground
       setCharPos();
@@ -208,28 +230,33 @@ $(document).ready(function() {
         //reset player variables
         yvelocity = 0;
         yacceleration = 0;
-        ypos = boardBott-player.height()-1;
+        ypos = boardBott - player.height() - 1;
         setCharPos();
         pressed = false;
       }
-
     }
   }
 
-  function floorCollision(){
+  function floorCollision() {
     if (jumping == true) {
-      jumping = false
+      jumping = false;
     }
-    if((playerBottom >= floorsTop[0] && playerLeft <= floorsRight[0] && playerRight >= floorsLeft[0])||(playerBottom >= floorsTop[1] && playerLeft <= floorsRight[1] && playerRight >= floorsLeft[1])){
+    if (
+      (playerBottom >= floorsTop[0] &&
+        playerLeft <= floorsRight[0] &&
+        playerRight >= floorsLeft[0]) ||
+      (playerBottom >= floorsTop[1] &&
+        playerLeft <= floorsRight[1] &&
+        playerRight >= floorsLeft[1])
+    ) {
       clearInterval(jumpInt);
-      console.log("floor")
+      // console.log("floor");
       yvelocity = 0;
       yacceleration = 0;
       if (playerLeft >= floorsRight[0]) {
-        ypos = floorsTop[1]-player.height()-1;
-      }else{
-
-        ypos = floorsTop[0]-player.height()-1;
+        ypos = floorsTop[1] - player.height() - 1;
+      } else {
+        ypos = floorsTop[0] - player.height() - 1;
       }
       setCharPos();
       pressed = false;
@@ -258,13 +285,9 @@ $(document).ready(function() {
   setInterval(function() {
     movePlayer();
 
-    console.log(yacceleration)
+    // console.log(yacceleration);
     if (yacceleration == 0) {
       checkFloating();
-
     }
   }, 5);
-
-
-
 });
