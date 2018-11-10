@@ -2,6 +2,8 @@ $(document).ready(function() {
   var player = $(".player");
   var board = $(".container");
 
+
+
   var keyPress = [];
 
   var playerXpos = board.width() / 2;
@@ -51,11 +53,39 @@ $(document).ready(function() {
   }
 });
 
+var character = $(".player");
+
+var characterRight;
+var characterLeft;
+var characterTop;
+var characterBott;
+
+// set up variables for character
+var yacceleration;
+var yvelocity;
+
+var ypos;
+
+var jumping = false;
+var pressed = false;
+
+//board
+var board = $(".container");
+
+var boardLeft;
+var boardRight;
+var boardTop;
+var boardBott;
+
 $("body").keydown(function (e) {
   //start the game with spacebar
-  if(e.keyCode == 38){
-
-
+  if(e.keyCode == 38 && pressed == false && jumping == false){
+    jump();
+    jumping = true;
+    yacceleration = 0.1;
+    yvelocity = -6.6;
+    ypos = 259;
+    pressed = true;
   }
 }
 
