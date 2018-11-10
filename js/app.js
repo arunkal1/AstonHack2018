@@ -2,12 +2,7 @@ $(document).ready(function() {
   var player = $(".player");
   var board = $(".container");
 
-
-
   var keyPress = [];
-
-  var playerXpos = board.width() / 2;
-  var playerYpos = board.height() / 2;
 
   $(document).keydown(function(event) {
     keyPress[event.which] = true;
@@ -41,8 +36,6 @@ $(document).ready(function() {
   }
 });
 
-var character = $(".player");
-
 var characterRight;
 var characterLeft;
 var characterTop;
@@ -58,7 +51,6 @@ var jumping = false;
 var pressed = false;
 
 //board
-var board = $(".container");
 
 var boardLeft;
 var boardRight;
