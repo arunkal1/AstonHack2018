@@ -48,7 +48,7 @@ $(document).ready(function() {
   var playerXpos = 0;
   var playerYpos = 0;
 
-  var onFloor = true;
+  var onFloor = false;
 
   $(document).keydown(function(event) {
     keyPress[event.which] = true;
@@ -89,24 +89,24 @@ $(document).ready(function() {
 
     if ((playerRight < floorsLeft[0] || playerLeft > floorsRight[floorsRight.length-1])&& playerBottom < floorsTop[0]-1 ) {
       onFloor = false
-    }else if(playerRight < floorsLeft[1] && playerBottom < floorsTop[0]-1){
+    }else if(playerRight < floorsLeft[1] && playerBottom < floorsTop[0]-2){
       onFloor = false
-    }else if(playerRight < floorsLeft[2] && playerLeft > floorsLeft[0] && playerBottom < floorsTop[1]-1){
+    }else if(playerRight < floorsLeft[2] && playerLeft > floorsRight[0] && playerBottom < floorsTop[1]-1 ){
       onFloor = false
-    }else if(playerRight < floorsLeft[3] && playerLeft > floorsLeft[1] && playerBottom < floorsTop[2]-1){
+    }else if(playerRight < floorsLeft[3] && playerLeft > floorsRight[1] && playerBottom < floorsTop[2]-1){
       onFloor = false
-    }else if(playerRight < floorsLeft[4] && playerLeft > floorsLeft[2] && playerBottom < floorsTop[3]-1){
+    }else if(playerRight < floorsLeft[4] && playerLeft > floorsRight[2] && playerBottom < floorsTop[3]-1){
       onFloor = false
-    }else if(playerRight < floorsLeft[5] && playerLeft > floorsLeft[3] && playerBottom < floorsTop[4]-1){
+    }else if(playerRight < floorsLeft[5] && playerLeft > floorsRight[3] && playerBottom < floorsTop[4]-1){
       onFloor = false
-    }else if(playerRight < floorsLeft[6] && playerLeft > floorsLeft[4] && playerBottom < floorsTop[5]-1){
+    }else if(playerRight < floorsLeft[6] && playerLeft > floorsRight[4] && playerBottom < floorsTop[5]-1){
       onFloor = false
-    }else if(playerRight < floorsLeft[7] && playerLeft > floorsLeft[5] && playerBottom < floorsTop[6]-1){
+    }else if(playerRight < floorsLeft[7] && playerLeft > floorsRight[5] && playerBottom < floorsTop[6]-1){
       onFloor = false
     }else{
       onFloor = true;
     }
-
+    console.log(onFloor);
     if ((onFloor == false )) {
       yacceleration = 0.08;
       setCharPos();
@@ -149,13 +149,14 @@ $(document).ready(function() {
 
   $("body").keydown(function(e) {
     //start the game with spacebar
-    if (e.keyCode == 38 && pressed == false && jumping == false) {
+    if (e.keyCode == 38 && pressed == false && jumping == false ) {
       jump();
+      ypos = playerTop
       jumping = true;
       yacceleration = 0.08;
       yvelocity = -4;
       pressed = true;
-      onFloor = false
+      onFloor = false;
     }
   });
 
@@ -212,8 +213,8 @@ $(document).ready(function() {
       //move the player and check if it has hit the ground
       setCharPos();
       move();
-      verticalCollisions();
-      floorCollision();
+      // verticalCollisions();
+      // floorCollision();
     }, 5);
   }
   function setCharPos() {
@@ -222,6 +223,7 @@ $(document).ready(function() {
     });
   }
   function move() {
+
     yvelocity += yacceleration;
     ypos += yvelocity;
   }
@@ -269,7 +271,7 @@ $(document).ready(function() {
     //   pressed = false;
     //   onFloor = true;
     // }
-    thing = false
+
     if(playerBottom >= floorsTop[0] && playerLeft <= floorsRight[0] && playerRight >= floorsLeft[0]){
       ypos = floorsTop[0]-player.height()-1;
       moveUp()
