@@ -5,10 +5,8 @@ $(document).ready(function() {
   // Adds score to leaderboard array and sets the array in localstorage.
   function addScore(name, score) {
     leaderboard.push([name, score]);
-    // Code sorts leaderboard
-    leaderboard = leaderboard.sort(function(a, b) {
-      return a[1] - b[1];
-    });
+    sortLeaderboard();
+    setupLeaderboard();
     localStorage.setItem("leaderboard", JSON.stringify(leaderboard)); // Put leaderboard
   }
 
@@ -16,10 +14,14 @@ $(document).ready(function() {
     if (JSON.parse(localStorage.getItem("leaderboard") != null)) {
       leaderboard = JSON.parse(localStorage.getItem("leaderboard"));
       // Code sorts leaderboard
-      leaderboard = leaderboard.sort(function(a, b) {
-        return a[1] - b[1];
-      });
+      sortLeaderboard();
     }
+  }
+
+  function sortLeaderboard() {
+    leaderboard = leaderboard.sort(function(a, b) {
+      return a[1] - b[1];
+    });
   }
 
   function setupLeaderboard() {
@@ -43,8 +45,10 @@ $(document).ready(function() {
   }
 
   // Mock scores
+  setupLeaderboard();
   // addScore("Player1", 100);
   // addScore("Player2", 50);
   // addScore("Player3", 25);
-  setupLeaderboard();
+  // addScore("Player4", 75);
+  // addScore("Player5", 20);
 });
