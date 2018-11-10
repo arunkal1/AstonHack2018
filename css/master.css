@@ -8,7 +8,7 @@
 
 .container {
   height: 500px;
-  width: 800px;
+  width: 100vw;
   position: relative;
   background: black;
 }
@@ -24,12 +24,68 @@
 
 #floor1{
   top: 450px;
-  left: 100px;
+  left: 0px;
 }
 
 #floor2{
   top: 400px;
+  left: 100px;
+}
+#floor3{
+  top: 450px;
   left: 200px;
+}
+#floor4{
+  top: 450px;
+  left: 300px;
+}
+
+#floor5{
+  top: 400px;
+  left: 400px;
+}
+#floor6{
+  top: 450px;
+  left: 500px;
+}
+#floor7{
+  top: 450px;
+  left: 600px;
+}
+
+#floor8{
+  top: 400px;
+  left: 700px;
+}
+#floor9{
+  top: 450px;
+  left: 800px;
+}
+#floor10{
+  top: 450px;
+  left: 900px;
+}
+
+#floor11{
+  top: 400px;
+  left: 1000px;
+}
+#floor12{
+  top: 450px;
+  left: 1100px;
+}
+#floor13{
+  top: 450px;
+  left: 1200px;
+}
+
+#floor14{
+  top: 400px;
+  left: 1300px;
+}
+#floor15{
+  top: 450px;
+  left: 1400px;
 }
 .arrow {
   background: red;
