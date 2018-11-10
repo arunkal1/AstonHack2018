@@ -1,6 +1,7 @@
 $(document).ready(function() {
   var player = $(".player");
   var board = $(".container");
+<<<<<<< HEAD
   var floor = $(".floor");
   var floors = []
   function getFloors(){
@@ -10,10 +11,41 @@ $(document).ready(function() {
     console.log(floors)
   }
   getFloors();
+=======
+  var bullet;
+  var bulletLeft;
+  var bulletRight;
+  var bulletTop;
+  var bulletRight;
+>>>>>>> 9b172f4b466876cb9afb3ea4ec259ce7514c7ae0
 
   var keyPress = [];
 
   var speed = 3;
+
+  var playerRight;
+  var playerLeft;
+  var playerTop;
+  var playerBottom;
+
+  // set up variables for player
+  var yacceleration;
+  var yvelocity;
+
+  var ypos;
+
+  var jumping = false;
+  var pressed = false;
+
+  //board
+
+  var boardLeft;
+  var boardRight;
+  var boardTop;
+  var boardBott;
+
+  var playerXpos = 0;
+  var playerYpos = 0;
 
   $(document).keydown(function(event) {
     keyPress[event.which] = true;
@@ -22,29 +54,29 @@ $(document).ready(function() {
     keyPress[event.which] = false;
   });
 
-  var playerXpos = board.width() / 2;
-  var playerYpos = 0;
-
   function movePlayer() {
     boardPosition();
-
     characterPosition();
+<<<<<<< HEAD
 
     floorPosition();
 
+=======
+>>>>>>> 9b172f4b466876cb9afb3ea4ec259ce7514c7ae0
     //horizontal movement
-
     if (playerRight <= boardRight) {
       if (keyPress[39]) {
         playerXpos += speed;
-        console.log("right");
       }
     }
     if (playerLeft >= boardLeft) {
       if (keyPress[37]) {
         playerXpos -= speed;
-        console.log("left");
       }
+    }
+    //Shooting control
+    if (keyPress[32]) {
+      shoot();
     }
     //Changing player position
     player.css({
@@ -52,6 +84,7 @@ $(document).ready(function() {
     });
   }
 
+<<<<<<< HEAD
   function checkFloating(){
 
     if ((playerBottom < floorsTop[1])) {
@@ -89,6 +122,8 @@ $(document).ready(function() {
   var floorsTop = [];
   var floorsBott = [];
 
+=======
+>>>>>>> 9b172f4b466876cb9afb3ea4ec259ce7514c7ae0
   $("body").keydown(function(e) {
     //start the game with spacebar
     if (e.keyCode == 38 && pressed == false && jumping == false) {
@@ -97,7 +132,6 @@ $(document).ready(function() {
       yacceleration = 0.1;
       yvelocity = -5;
       pressed = true;
-      console.log("jump");
     }
   });
 
@@ -111,7 +145,15 @@ $(document).ready(function() {
     playerRight = playerLeft + player.width();
     playerBottom = playerTop + player.height();
   }
+  function bulletPosition() {
+    // Find the left and top edge of the player
+    bulletLeft = $(".arrow").offset().left;
+    bulletTop = $(".arrow").offset().top;
 
+    // Find right and bottom edge of the bullet
+    bulletRight = bulletLeft + $(".arrow").width();
+    bulletBottom = bulletTop + $(".arrow").height();
+  }
   function boardPosition() {
     // Find the left and top edge of the board
     boardLeft = board.offset().left;
@@ -134,9 +176,12 @@ $(document).ready(function() {
 
   function jump() {
     jumpInt = setInterval(function() {
-      characterPosition();
       boardPosition();
+<<<<<<< HEAD
       floorPosition();
+=======
+      characterPosition();
+>>>>>>> 9b172f4b466876cb9afb3ea4ec259ce7514c7ae0
 
       //move the player and check if it has hit the ground
       setCharPos();
@@ -145,18 +190,15 @@ $(document).ready(function() {
       floorCollision();
     }, 5);
   }
-
   function setCharPos() {
     player.css({
       top: ypos + "px"
     });
   }
-
   function move() {
     yvelocity += yacceleration;
     ypos += yvelocity;
   }
-
   function verticalCollisions() {
     if (jumping == true) {
       jumping = false;
@@ -195,12 +237,37 @@ $(document).ready(function() {
     }
   }
 
+  function shoot() {
+    if (!$(".arrow").is(":visible")) {
+      // characterPosition();
+      $(".container").append("<div class = 'arrow'></div>");
+      // console.log(playerLeft);
+      $(".arrow").css({
+        top: playerTop + "px",
+        left: playerLeft + "px"
+      });
+    }
+  }
+  setInterval(function() {
+    if ($(".arrow").is(":visible")) {
+      bulletPosition();
+      bulletLeft += 1;
+      $(".arrow").css({
+        left: bulletLeft + "px"
+      });
+    }
+  }, 50);
+
   setInterval(function() {
     movePlayer();
+<<<<<<< HEAD
     console.log(yacceleration)
     if (yacceleration == 0) {
       checkFloating();
 
     }
   }, 5);
+=======
+  }, 10);
+>>>>>>> 9b172f4b466876cb9afb3ea4ec259ce7514c7ae0
 });

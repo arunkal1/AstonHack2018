@@ -4,7 +4,6 @@
   position: absolute;
   background: yellowgreen;
   top: 450px;
-  width: 40px;
 }
 
 .container {
@@ -13,6 +12,7 @@
   position: relative;
   background: black;
 }
+
 
 .floor{
   height: 10px;
@@ -30,4 +30,11 @@
 #floor2{
   top: 400px;
   left: 200px;
+}
+.arrow {
+  background: red;
+  position: absolute;
+  width: 20px;
+  height: 10px;
+
 }
