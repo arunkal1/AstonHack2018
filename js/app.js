@@ -88,8 +88,8 @@ $(document).ready(function() {
   }
   function bulletPosition() {
     // Find the left and top edge of the player
-    bulletLeft = $(".arrow").offset().left;
-    bulletTop = $(".arrow").offset().top;
+    bulletLeft = $(".arrow").position().left;
+    bulletTop = $(".arrow").position().top;
 
     // Find right and bottom edge of the bullet
     bulletRight = bulletLeft + $(".arrow").width();
@@ -144,24 +144,22 @@ $(document).ready(function() {
 
   function shoot() {
     if (!$(".arrow").is(":visible")) {
-      // characterPosition();
       $(".container").append("<div class = 'arrow'></div>");
-      // console.log(playerLeft);
       $(".arrow").css({
         top: playerTop + "px",
-        left: playerLeft + "px"
+        left: playerLeft - 200 + "px"
       });
     }
   }
   setInterval(function() {
     if ($(".arrow").is(":visible")) {
       bulletPosition();
-      bulletLeft += 1;
+      bulletLeft += 10;
       $(".arrow").css({
         left: bulletLeft + "px"
       });
     }
-  }, 50);
+  }, 10);
 
   setInterval(function() {
     movePlayer();
