@@ -1,27 +1,36 @@
 $(document).ready(function() {
   // Leaderboard array with mock scores
-  var leaderboard = [["Michael", 34], ["Toby", 101], ["Ryan", 443]];
+  var leaderboard = [];
 
   // Adds score to leaderboard array and sets the array in localstorage.
   function addScore(name, score) {
-    leaderboard.push([playerName, playerScore]);
+    leaderboard.push([name, score]);
+    // Code sorts leaderboard
+    leaderboard = leaderboard.sort(function(a, b) {
+      return a[1] - b[1];
+    });
     localStorage.setItem("leaderboard", JSON.stringify(leaderboard)); // Put leaderboard
   }
 
   function retrieveLeaderboard() {
     if (JSON.parse(localStorage.getItem("leaderboard") != null)) {
       leaderboard = JSON.parse(localStorage.getItem("leaderboard"));
+      // Code sorts leaderboard
+      leaderboard = leaderboard.sort(function(a, b) {
+        return a[1] - b[1];
+      });
     }
   }
 
   function setupLeaderboard() {
+    retrieveLeaderboard();
     var table = document.getElementById("scoreTable");
     var header = table.createTHead();
     var row = header.insertRow(0);
     var cell = row.insertCell(0);
-    cell.innerHTML = "Name";
+    cell.innerHTML = "<u>Name</u>";
     var cell = row.insertCell(1);
-    cell.innerHTML = "Score";
+    cell.innerHTML = "<u>Score</ul>";
 
     for (var i = 0; i < leaderboard.length; i++) {
       var row = table.insertRow(1);

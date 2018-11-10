@@ -7,4 +7,6 @@ body {
 }
 
 #scoreTable {
+  text-align: center;
+  margin: auto;
 }
