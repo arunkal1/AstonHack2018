@@ -3,7 +3,15 @@ body {
 }
 
 .container {
-  background-color: #00b4ff;
+  background-image: linear-gradient(#00b4ff, white);
+  height: 100vh;
+  position: relative;
+  width: 100vw;
+}
+
+.container_override {
+  /* Below is for night mode */
+  background-image: linear-gradient(black, #143642);
   height: 100vh;
   position: relative;
   width: 100vw;
@@ -95,4 +103,13 @@ body {
   padding-top: 100px;
   position: absolute;
   margin-left: -2000px;
+}
+
+.container_override #star {
+  position: absolute;
+  animation-name: cloudsMovement;
+  animation-duration: 35s;
+  animation-iteration-count: infinite;
+  margin-left: -1000px;
+  margin-top: -350px;
 }
