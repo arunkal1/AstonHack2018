@@ -2,11 +2,10 @@ $(function() {
   enemies = [];
   // fireballs = [];
 
-  var startx = $(".container").width() - 300;
-  var starty = $(".container").height() - 300;
+  var startx = $(".box").width() - 350;
+  var starty = $(".box").height() - 300;
 
   addEnemy(20, 0, 0);
-  addEnemy(200, 0, 1);
 
   setInterval(function() {
     drawEnemies();
@@ -20,7 +19,7 @@ $(function() {
 
     this.left = true;
 
-    $(".container").append("<img src='images/dinasour.png' class='enemy' id='enemy-" + id + "'/>");
+    $(".box").append("<img src='images/dinasour.png' class='enemy' id='enemy-" + id + "'/>");
 
     this.xLeft = $("#enemy-" + id).offset().left;
     this.xRight = $("#enemy-" + id).offset().left + $("#enemy-" + id).width();
@@ -40,12 +39,17 @@ $(function() {
 
   function drawEnemies() {
     for (var i = 0; i < enemies.length; i++) {
+      // if (enemies[i].xPos <= 0) {
+      //   enemies[i].left = false;
+      //   $("#enemy-" + i).attr("src","images/dinasour-1.png");
+      // }
+
       if (enemies[i].xPos <= 0) {
         enemies[i].left = false;
         $("#enemy-" + i).attr("src","images/dinasour-1.png");
       }
 
-      if (enemies[i].xPos >= $(".container").width() - 300) {
+      if (enemies[i].xPos >= $("#floor10").width() - 3) {
         enemies[i].left = true;
         $("#enemy-" + i).attr("src","images/dinasour.png");
       }
@@ -69,7 +73,7 @@ $(function() {
     //
     //   this.dead = false;
     //
-    //   $(".container").append("<div id='fireball-" + id + "'class='fireball' </div>");
+    //   $(".box").append("<div id='fireball-" + id + "'class='fireball' </div>");
     // }
     //
     // function setFireBallPosition(xPos, yPos, id) {
