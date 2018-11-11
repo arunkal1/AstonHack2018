@@ -1,8 +1,8 @@
 $(function() {
   enemies = [];
 
-  var startx = $(".container").width() - 50;
-  var starty = $(".container").height() - 50;
+  var startx = $(".container").width() - 300;
+  var starty = $(".container").height() - 300;
 
   addEnemy(20, 0, 0);
   addEnemy(200, 0, 1);
@@ -19,7 +19,7 @@ $(function() {
 
     this.left = true;
 
-    $(".container").append("<div class='enemy' id='enemy-" + id + "'>");
+    $(".container").append("<img src='images/dinasour.png' class='enemy' id='enemy-" + id + "'/>");
 
     this.xLeft = $("#enemy-" + id).offset().left;
     this.xRight = $("#enemy-" + id).offset().left + $("#enemy-" + id).width();
@@ -41,10 +41,12 @@ $(function() {
     for (var i = 0; i < enemies.length; i++) {
       if (enemies[i].xPos <= 0) {
         enemies[i].left = false;
+        $("#enemy-" + i).attr("src","images/dinasour-1.png");
       }
 
-      if (enemies[i].xPos >= $(".container").width() - 50) {
+      if (enemies[i].xPos >= $(".container").width() - 300) {
         enemies[i].left = true;
+        $("#enemy-" + i).attr("src","images/dinasour.png");
       }
 
       if (enemies[i].left) {
@@ -55,15 +57,5 @@ $(function() {
         setPosition(enemies[i].xPos, enemies[i].yPos, i);
       }
     }
-
-    // for (var i = 0; i < enemies.length; i++) {
-    //   if (enemies[i].xLeft <= 0) {
-    //     left = false;
-    //     setPosition(enemies[i].xPos,enemies[i].yPos,i);
-    //   } else if (enemies[i].xRight >= $(".container").width()){
-    //     enemies[i].xPos += 1
-    //     setPosition(enemies[i].xPos,enemies[i].yPos,i);
-    //   }
-    // }
   }
 });
