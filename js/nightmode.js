@@ -10,6 +10,10 @@ document.addEventListener("DOMContentLoaded", function() {
         .classList.add("container");
       var star = document.getElementById("star");
       star.parentElement.removeChild(star);
+      var star2 = document.getElementById("star2");
+      star2.parentElement.removeChild(star2);
+      var star3 = document.getElementById("star3");
+      star3.parentElement.removeChild(star3);
     } else if (score >= 50) {
       document
         .getElementsByClassName("container")[0]

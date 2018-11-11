@@ -11,19 +11,10 @@ body {
 
 .container_override {
   /* Below is for night mode */
-  background-image: linear-gradient(black, #143642);
+  background-image: linear-gradient(black, #143642, grey);
   height: 100vh;
   position: relative;
   width: 100vw;
-}
-
-.container_override #star {
-  position: absolute;
-  animation-name: cloudsMovement;
-  animation-duration: 35s;
-  animation-iteration-count: infinite;
-  margin-left: -1000px;
-  margin-top: -350px;
 }
 
 .floor {
@@ -86,6 +77,17 @@ body {
   }
 }
 
+@keyframes starsMovement {
+  0% {
+    margin-left: -50%;
+    transform: rotate(0deg);
+  }
+  100% {
+    margin-left: 110%;
+    transform: rotate(240deg);
+  }
+}
+
 #cloud1 {
   position: absolute;
   animation-name: cloudsMovement;
@@ -112,6 +114,37 @@ body {
   padding-top: 100px;
   position: absolute;
   margin-left: -2000px;
+}
+
+.container_override #star {
+  position: absolute;
+  animation-name: starsMovement;
+  animation-duration: 35s;
+  animation-iteration-count: infinite;
+  margin-left: -100px;
+  margin-top: -350px;
+}
+
+.container_override #star2 {
+  animation-name: starsMovement;
+  animation-duration: 35s;
+  animation-iteration-count: infinite;
+  animation-delay: 3s;
+  padding-top: 200px;
+  position: absolute;
+  margin-left: -1000px;
+  margin-top: -340px;
+}
+
+.container_override #star3 {
+  animation-name: starsMovement;
+  animation-duration: 35s;
+  animation-iteration-count: infinite;
+  animation-delay: 7s;
+  padding-top: 100px;
+  position: absolute;
+  margin-left: -2000px;
+  margin-top: -325px;
 }
 
 .enemy {
