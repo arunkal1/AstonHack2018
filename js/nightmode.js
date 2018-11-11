@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
   function dayAndNight() {
-    var score = 49;
+    var score = 52;
 
     if (score <= 50) {
       document
@@ -8,7 +8,11 @@ document.addEventListener("DOMContentLoaded", function() {
         .classList.add("box");
       var star = document.getElementById("star");
       star.parentElement.removeChild(star);
-    } else if (score >= 50) {
+      var star2 = document.getElementById("star2");
+      star2.parentElement.removeChild(star2);
+      var star3 = document.getElementById("star3");
+      star3.parentElement.removeChild(star3);
+    } else if (score >= 51) {
       document
         .getElementsByClassName("box")[0]
         .classList.add("container_override");
