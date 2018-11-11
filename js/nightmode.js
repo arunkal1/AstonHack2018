@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-  var score = 0;
+  var score = 40;
   var coins = [];
   // Temp variable to indicate player x coordinate
   var playerXposition = 76;
@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", function() {
       star2.parentElement.removeChild(star2);
       var star3 = document.getElementById("star3");
       star3.parentElement.removeChild(star3);
+      $("#scoreBoard").css("color", "black");
     } else if (score >= 21) {
       document
         .getElementsByClassName("container")[0]
@@ -32,6 +33,7 @@ document.addEventListener("DOMContentLoaded", function() {
       cloud.parentElement.removeChild(cloud);
       cloud2.parentElement.removeChild(cloud2);
       cloud3.parentElement.removeChild(cloud3);
+      $("#scoreBoard").css("color", "white");
     }
   }
 
