@@ -540,6 +540,7 @@ $(document).ready(function() {
       star2.parentElement.removeChild(star2);
       var star3 = document.getElementById("star3");
       star3.parentElement.removeChild(star3);
+      $("#scoreBoard").css("color", "black");
     } else if (score >= 21) {
       document
         .getElementsByClassName("box")[0]
@@ -550,6 +551,7 @@ $(document).ready(function() {
       cloud.parentElement.removeChild(cloud);
       cloud2.parentElement.removeChild(cloud2);
       cloud3.parentElement.removeChild(cloud3);
+      $("#scoreBoard").css("color", "white");
     }
   }
 
