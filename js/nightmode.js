@@ -1,8 +1,16 @@
 document.addEventListener("DOMContentLoaded", function() {
   var score = 0;
+  var coins = [];
+  // Temp variable to indicate player x coordinate
+  var playerXposition = 76;
 
   function dayAndNight() {
-    scoringSystem();
+    var coin1 = new coin(75, 100, 1);
+    coins.push(coin1);
+    var coin2 = new coin(100, 100, 2);
+    coins.push(coin2);
+
+    checkCoins();
 
     if (score <= 20) {
       document
