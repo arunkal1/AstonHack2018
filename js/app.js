@@ -149,6 +149,30 @@ $(document).ready(function() {
       playerBottom < floorsTop[10] - 1
     ) {
       onFloor = false;
+    } else if (
+      playerRight < floorsLeft[12] &&
+      playerLeft > floorsRight[10] &&
+      playerBottom < floorsTop[11] - 1
+    ) {
+      onFloor = false;
+    } else if (
+      playerRight < floorsLeft[13] &&
+      playerLeft > floorsRight[11] &&
+      playerBottom < floorsTop[12] - 1
+    ) {
+      onFloor = false;
+    } else if (
+      playerRight < floorsLeft[14] &&
+      playerLeft > floorsRight[12] &&
+      playerBottom < floorsTop[13] - 1
+    ) {
+      onFloor = false;
+    } else if (
+      playerRight < floorsLeft[15] &&
+      playerLeft > floorsRight[13] &&
+      playerBottom < floorsTop[14] - 1
+    ) {
+      onFloor = false;
     } else {
       onFloor = true;
     }
@@ -213,8 +237,8 @@ $(document).ready(function() {
   }
   function bulletPosition() {
     // Find the left and top edge of the player
-    bulletLeft = $(".arrow").position().left;
-    bulletTop = $(".arrow").position().top;
+    bulletLeft = $(".arrow").offset().left;
+    bulletTop = $(".arrow").offset().top;
 
     // Find right and bottom edge of the bullet
     bulletRight = bulletLeft + $(".arrow").width();
@@ -243,10 +267,14 @@ $(document).ready(function() {
   function jump() {
     jumpInt = setInterval(function() {
       boardPosition();
+
       characterPosition();
+
       //move the player and check if it has hit the ground
       setCharPos();
       move();
+      // verticalCollisions();
+      // floorCollision();
     }, 5);
   }
   function setCharPos() {
@@ -283,6 +311,24 @@ $(document).ready(function() {
       onFloor = false;
       thing = false;
     }
+    // if((playerBottom >= floorsTop[0] && playerLeft <= floorsRight[0] && playerRight >= floorsLeft[0])||(playerBottom >= floorsTop[1] && playerLeft <= floorsRight[1] && playerRight >= floorsLeft[1])){
+    //   clearInterval(jumpInt);
+    //   console.log("floor")
+    //   yvelocity = 0;
+    //   yacceleration = 0;
+    //
+    //
+    //
+    //   if (playerLeft >= floorsRight[0]) {
+    //     ypos = floorsTop[1]-player.height()-1;
+    //   }else{
+    //
+    //     ypos = floorsTop[0]-player.height()-1;
+    //   }
+    //   setCharPos();
+    //   pressed = false;
+    //   onFloor = true;
+    // }
 
     if (
       playerBottom >= floorsTop[0] &&
@@ -340,6 +386,62 @@ $(document).ready(function() {
     ) {
       ypos = floorsTop[7] - player.height() - 1;
       moveUp();
+    } else if (
+      playerBottom >= floorsTop[8] &&
+      playerLeft <= floorsRight[8] &&
+      playerRight >= floorsLeft[8]
+    ) {
+      ypos = floorsTop[8] - player.height() - 1;
+      moveUp();
+    } else if (
+      playerBottom >= floorsTop[9] &&
+      playerLeft <= floorsRight[9] &&
+      playerRight >= floorsLeft[9]
+    ) {
+      ypos = floorsTop[9] - player.height() - 1;
+      moveUp();
+    } else if (
+      playerBottom >= floorsTop[10] &&
+      playerLeft <= floorsRight[10] &&
+      playerRight >= floorsLeft[10]
+    ) {
+      ypos = floorsTop[10] - player.height() - 1;
+      moveUp();
+    } else if (
+      playerBottom >= floorsTop[11] &&
+      playerLeft <= floorsRight[11] &&
+      playerRight >= floorsLeft[11]
+    ) {
+      ypos = floorsTop[11] - player.height() - 1;
+      moveUp();
+    } else if (
+      playerBottom >= floorsTop[12] &&
+      playerLeft <= floorsRight[12] &&
+      playerRight >= floorsLeft[12]
+    ) {
+      ypos = floorsTop[12] - player.height() - 1;
+      moveUp();
+    } else if (
+      playerBottom >= floorsTop[13] &&
+      playerLeft <= floorsRight[13] &&
+      playerRight >= floorsLeft[13]
+    ) {
+      ypos = floorsTop[13] - player.height() - 1;
+      moveUp();
+    } else if (
+      playerBottom >= floorsTop[14] &&
+      playerLeft <= floorsRight[14] &&
+      playerRight >= floorsLeft[14]
+    ) {
+      ypos = floorsTop[14] - player.height() - 1;
+      moveUp();
+    } else if (
+      playerBottom >= floorsTop[15] &&
+      playerLeft <= floorsRight[15] &&
+      playerRight >= floorsLeft[15]
+    ) {
+      ypos = floorsTop[15] - player.height() - 1;
+      moveUp();
     } else {
     }
   }
@@ -355,7 +457,9 @@ $(document).ready(function() {
 
   function shoot() {
     if (!$(".arrow").is(":visible")) {
+      // characterPosition();
       $(".container").append("<div class = 'arrow'></div>");
+      // console.log(playerLeft);
       $(".arrow").css({
         top: playerTop + "px",
         left: playerLeft + "px"
@@ -365,7 +469,7 @@ $(document).ready(function() {
   setInterval(function() {
     if ($(".arrow").is(":visible")) {
       bulletPosition();
-      bulletLeft += 10;
+      bulletLeft += 1;
       $(".arrow").css({
         left: bulletLeft + "px"
       });
