@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", function() {
   function dayAndNight() {
     var score = 49;
