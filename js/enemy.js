@@ -1,5 +1,6 @@
 $(function() {
   enemies = [];
+  // fireballs = [];
 
   var startx = $(".container").width() - 300;
   var starty = $(".container").height() - 300;
@@ -25,7 +26,7 @@ $(function() {
     this.xRight = $("#enemy-" + id).offset().left + $("#enemy-" + id).width();
   }
 
-  function setPosition(xPos, yPos, id) {
+  function setEnemyPosition(xPos, yPos, id) {
     $("#enemy-" + id).css({
       left: xPos,
       top: yPos
@@ -51,11 +52,33 @@ $(function() {
 
       if (enemies[i].left) {
         enemies[i].xPos -= 1;
-        setPosition(enemies[i].xPos, enemies[i].yPos, i);
+        setEnemyPosition(enemies[i].xPos, enemies[i].yPos, i);
       } else {
         enemies[i].xPos += 1;
-        setPosition(enemies[i].xPos, enemies[i].yPos, i);
+        setEnemyPosition(enemies[i].xPos, enemies[i].yPos, i);
       }
     }
+
+    // function FireBall(xPos, yPos, id){
+    //   this.xPos = xPos;
+    //   this.yPos = yPos;
+    //
+    //   this.id = id
+    //
+    //   this.left = true;
+    //
+    //   this.dead = false;
+    //
+    //   $(".container").append("<div id='fireball-" + id + "'class='fireball' </div>");
+    // }
+    //
+    // function setFireBallPosition(xPos, yPos, id) {
+    //   $("#fireball-" + id).css({
+    //     left: xPos,
+    //     top: yPos
+    //   });
+    // }
+    //
+    // var fireball = new FireBall(10,10,0);
   }
 });
