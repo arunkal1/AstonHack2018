@@ -481,14 +481,15 @@ $(document).ready(function() {
 
   setInterval(function() {
     movePlayer();
+    checkCoins();
     checkFloating();
   }, 5);
 
   floorPosition();
-});
+
 
 // =============================
-document.addEventListener("DOMContentLoaded", function() {
+
   var score = 0;
   var coins = [];
   // Temp variable to indicate player x coordinate
@@ -497,8 +498,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
   function dayAndNight() {
 
-    // var coin1 = new coin(75, 100, 1);
-    // coins.push(coin1);
+    var coin1 = new coin(810, 920, 1);
+    coins.push(coin1);
     var coin2 = new coin(300, 920, 2);
     coins.push(coin2);
 
@@ -546,9 +547,13 @@ document.addEventListener("DOMContentLoaded", function() {
   // Run each time the player moves
   function checkCoins() {
     // Checks if player has a higher x coordinate than the coin. If true then remove the coin and increase points.
+
+
+    console.log(playerRight);
     for (var i = 0; i < coins.length; i++) {
-      if (playerXposition >= coins[i].xPos) {
+      if (playerRight >= coins[i].xPos) {
         $("#coin-" + coins[i].id).remove();
+        coins.splice(i,1)
         score += 5;
         $("#scoreBoard").text(score);
       }
