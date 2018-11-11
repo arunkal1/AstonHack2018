@@ -1,18 +1,3 @@
-.player {
-  height: 50px;
-  width: 50px;
-  position: absolute;
-  background: yellowgreen;
-  top: 450px;
-}
-
-/* .container {
-  height: 500px;
-  width: 100vw;
-  position: relative;
-  background: black;
-} */
-
 .floor {
   height: 10px;
   width: 100px;
