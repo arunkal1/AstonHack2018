@@ -50,11 +50,9 @@ $(document).ready(function() {
 
   $(document).keydown(function(event) {
     keyPress[event.which] = true;
-
   });
   $(document).keyup(function(event) {
     keyPress[event.which] = false;
-
   });
 
   function movePlayer() {
@@ -516,15 +514,16 @@ $(document).ready(function() {
         bulletRight <= floorsRight[14]
       ) {
         $(".arrow").remove();
+      }
+    }
+  }
 
-  var score = 0;
+  var score = 40;
   var coins = [];
   // Temp variable to indicate player x coordinate
   var playerXposition = 76;
 
-
   function dayAndNight() {
-
     var coin1 = new coin(810, 920, 1);
     coins.push(coin1);
     var coin2 = new coin(300, 920, 2);
@@ -533,9 +532,7 @@ $(document).ready(function() {
     checkCoins();
 
     if (score <= 20) {
-      document
-        .getElementsByClassName("box")[0]
-        .classList.add("box");
+      document.getElementsByClassName("box")[0].classList.add("box");
       var star = document.getElementById("star");
       star.parentElement.removeChild(star);
       var star2 = document.getElementById("star2");
@@ -575,15 +572,13 @@ $(document).ready(function() {
   function checkCoins() {
     // Checks if player has a higher x coordinate than the coin. If true then remove the coin and increase points.
 
-
     console.log(playerRight);
     for (var i = 0; i < coins.length; i++) {
       if (playerRight >= coins[i].xPos) {
         $("#coin-" + coins[i].id).remove();
-        coins.splice(i,1)
+        coins.splice(i, 1);
         score += 5;
         $("#scoreBoard").text(score);
->>>>>>> f08942dbd70dcce9c6e016af0545bbf084342e1c
       }
     }
   }
