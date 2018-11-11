@@ -50,6 +50,13 @@
   width: 2200px;
 }
 
+/* .container_start {
+  background-image: linear-gradient(red, white, blue);
+  height: 100vh;
+  position: relative;
+  width: 100vw;
+} */
+
 #floor1 {
   bottom: 0;
   display: inline-block;
@@ -257,4 +264,10 @@
 
 .fireball {
   position: absolute;
+}
+
+.coin {
+  position: absolute;
+  width: 30px;
+  height: 30px;
 }

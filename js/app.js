@@ -199,8 +199,6 @@ $(document).ready(function() {
   var yacceleration;
   var yvelocity;
 
-
-
   var jumping = false;
   var pressed = false;
 
@@ -472,18 +470,124 @@ $(document).ready(function() {
   setInterval(function() {
     if ($(".arrow").is(":visible")) {
       bulletPosition();
-      bulletLeft += 25;
-      $(".arrow").css({
-        left: bulletLeft + "px"
-      });
+      checkBulletDino();
+      checkBulletWalls();
     }
-  }, 50);
+  }, 5);
 
   setInterval(function() {
     movePlayer();
-
+    checkCoins();
     checkFloating();
   }, 5);
 
   floorPosition();
+
+  function checkBulletDino() {
+    if ($(".enemy").is(":visible")) {
+      if (bulletRight <= $(".enemy").offset().left) {
+        bulletLeft += 7;
+        $(".arrow").css({
+          left: bulletLeft + "px"
+        });
+      } else if (bulletRight >= $(".enemy").offset().left) {
+        $(".arrow").remove();
+        $(".enemy").remove();
+        console.log("yeet");
+      }
+    } else if (!$(".enemy").is(":visible")) {
+      $(".arrow").remove();
+    }
+  }
+  function checkBulletWalls() {
+    if (floorsTop[3] <= bulletTop + 75 && bulletTop + 75 <= floorsTop[0]) {
+      console.log("floors top 3 " + floorsTop[3]);
+      console.log("bullet top " + bulletTop);
+      console.log("floors top 0" + floorsTop[0]);
+      if (bulletRight >= floorsLeft[3] && bulletRight <= floorsRight[3]) {
+        $(".arrow").remove();
+      } else if (
+        bulletRight >= floorsLeft[6] &&
+        bulletRight <= floorsRight[6]
+      ) {
+        $(".arrow").remove();
+      } else if (
+        bulletRight >= floorsLeft[14] &&
+        bulletRight <= floorsRight[14]
+      ) {
+        $(".arrow").remove();
+      }
+    }
+  }
+
+  var score = 0;
+  var coins = [];
+  // Temp variable to indicate player x coordinate
+  var playerXposition = 76;
+
+
+  function dayAndNight() {
+
+    floorPosition();
+    var coin1 = new coin(810, floorsTop[0]-50, 1);
+    coins.push(coin1);
+    var coin2 = new coin(300, floorsTop[0]-50, 2);
+    coins.push(coin2);
+
+    checkCoins();
+
+    if (score <= 20) {
+      document
+        .getElementsByClassName("box")[0]
+        .classList.add("box");
+      var star = document.getElementById("star");
+      star.parentElement.removeChild(star);
+      var star2 = document.getElementById("star2");
+      star2.parentElement.removeChild(star2);
+      var star3 = document.getElementById("star3");
+      star3.parentElement.removeChild(star3);
+    } else if (score >= 21) {
+      document
+        .getElementsByClassName("box")[0]
+        .classList.add("container_override");
+      var cloud = document.getElementById("cloud1");
+      var cloud2 = document.getElementById("cloud2");
+      var cloud3 = document.getElementById("cloud3");
+      cloud.parentElement.removeChild(cloud);
+      cloud2.parentElement.removeChild(cloud2);
+      cloud3.parentElement.removeChild(cloud3);
+    }
+  }
+
+  dayAndNight();
+
+  function coin(xPos, yPos, id) {
+    this.xPos = xPos;
+    this.yPos = yPos;
+    this.id = id;
+    $(".box").append(
+      "<img src='images/coin.png' class='coin' id='coin-" + id + "'/>"
+    );
+    $("#coin-" + id).css({
+      left: xPos,
+      top: yPos
+    });
+  }
+
+  // Score:
+  // Run each time the player moves
+  function checkCoins() {
+    // Checks if player has a higher x coordinate than the coin. If true then remove the coin and increase points.
+
+
+    console.log(playerRight);
+    for (var i = 0; i < coins.length; i++) {
+      if (playerRight >= coins[i].xPos) {
+        $("#coin-" + coins[i].id).remove();
+        coins.splice(i,1)
+        score += 5;
+        $("#scoreBoard").text(score);
+      }
+    }
+  }
 });
