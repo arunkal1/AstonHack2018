@@ -42,8 +42,9 @@ $(document).ready(function() {
     // console.log(fireballLeft);
     if (
       playerRight >= fireballLeft + 50 &&
+      playerLeft <= fireballRight &&
       playerBottom >= fireballTop &&
-      playerTop <= fireballBottom
+      playerTop <= fireballBottom - 50
     ) {
       fireball.remove();
       health = health - damage;
