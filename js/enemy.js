@@ -74,7 +74,7 @@ $(function() {
 
       if (
         fireballs[i].xPos >= $(".box").width() - 300 ||
-        fireballs[i].xPos <= 1200
+        fireballs[i].xPos <= 500
       ) {
         fireballs[i].xPos = enemies[i].xPos;
         // $("#fireballs-"+i).css({
@@ -89,8 +89,8 @@ $(function() {
         setEnemyPosition(enemies[i].xPos, enemies[i].yPos, i);
       } else {
         enemies[i].xPos += 1;
-        setFireBallPosition(enemies[i].xPos + 200, enemies[i].yPos, i);
         setEnemyPosition(enemies[i].xPos, enemies[i].yPos, i);
+        setFireBallPosition(enemies[i].xPos + 200, enemies[i].yPos, i);
       }
     }
     // comment
