@@ -198,8 +198,9 @@
 #star2 {
   position: absolute;
   animation-name: starsMovement;
-  animation-duration: 20s;
+  animation-duration: 35s;
   animation-iteration-count: infinite;
+  animation-delay: 3s;
   margin-left: -100px;
   margin-top: 110px;
 }
@@ -207,8 +208,9 @@
 #star3 {
   position: absolute;
   animation-name: starsMovement;
-  animation-duration: 20s;
+  animation-duration: 35s;
   animation-iteration-count: infinite;
+  animation-delay: 4s;
   margin-left: -100px;
   margin-top: 80px;
 }

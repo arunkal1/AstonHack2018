@@ -532,14 +532,17 @@ $(document).ready(function() {
     // console.log(score);
     if (score <= 4) {
       document.getElementsByClassName("box")[0].classList.add("box");
-      $("#star").remove();
-      $("#star2").remove();
-      $("#star3").remove();
+      $("#star").hide();
+      $("#star2").hide();
+      $("#star3").hide();
       $("#scoreBoard").css("color", "black");
     } else if (score > 4) {
       document
         .getElementsByClassName("box")[0]
         .classList.add("container_override");
+      $("#star").show();
+      $("#star2").show();
+      $("#star3").show();
       $("#cloud1").remove();
       $("#cloud2").remove();
       $("#cloud3").remove();
