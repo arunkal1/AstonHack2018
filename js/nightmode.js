@@ -4,13 +4,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
     if (score <= 50) {
       document
-        .getElementsByClassName("container")[0]
-        .classList.add("container");
+        .getElementsByClassName("box")[0]
+        .classList.add("box");
       var star = document.getElementById("star");
       star.parentElement.removeChild(star);
     } else if (score >= 50) {
       document
-        .getElementsByClassName("container")[0]
+        .getElementsByClassName("box")[0]
         .classList.add("container_override");
       var cloud = document.getElementById("cloud1");
       var cloud2 = document.getElementById("cloud2");

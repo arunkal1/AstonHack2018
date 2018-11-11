@@ -1,6 +1,6 @@
 $(document).ready(function() {
   var player = $(".player");
-  var board = $(".container");
+  var board = $(".box");
 
   var floor = $(".floor");
   var floors = [];
@@ -20,7 +20,7 @@ $(document).ready(function() {
 
   var keyPress = [];
 
-  var speed = 1;
+  var speed = 1.5;
 
   var playerRight;
   var playerLeft;
@@ -73,6 +73,7 @@ $(document).ready(function() {
     //Shooting control
     if (keyPress[32]) {
       shoot();
+      // console.log("pressed");
     }
     //Changing player position
     player.css({
@@ -196,7 +197,7 @@ $(document).ready(function() {
   var yacceleration;
   var yvelocity;
 
-  var ypos = 449;
+
 
   var jumping = false;
   var pressed = false;
@@ -458,7 +459,7 @@ $(document).ready(function() {
   function shoot() {
     if (!$(".arrow").is(":visible")) {
       // characterPosition();
-      $(".container").append("<div class = 'arrow'></div>");
+      $(".box").append("<div class = 'arrow'></div>");
       // console.log(playerLeft);
       $(".arrow").css({
         top: playerTop + "px",
@@ -469,7 +470,7 @@ $(document).ready(function() {
   setInterval(function() {
     if ($(".arrow").is(":visible")) {
       bulletPosition();
-      bulletLeft += 1;
+      bulletLeft += 25;
       $(".arrow").css({
         left: bulletLeft + "px"
       });

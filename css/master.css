@@ -1,105 +1,47 @@
 .player {
-  height: 50px;
+  height: 100px;
   width: 50px;
   position: absolute;
-  background: yellowgreen;
-  top: 450px;
+  /* background: yellowgreen; */
+  background-image: url("../images/spartan_character.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  top: 860px;
 }
 
-/* .container {
-  height: 500px;
+/* .box {
+  height: 100vh;
   width: 100vw;
   position: relative;
   background: black;
+  margin-right: 0;
+  margin-left: 0;
 } */
 
-.floor {
+/* .floor {
   height: 10px;
   width: 100px;
   background: greenyellow;
 
   position: absolute;
-}
+} */
 
-#floor1 {
-  top: 450px;
-  left: 0px;
-}
 
-#floor2 {
-  top: 400px;
-  left: 100px;
-}
-#floor3 {
-  top: 450px;
-  left: 200px;
-}
-#floor4 {
-  top: 450px;
-  left: 300px;
-}
-
-#floor5 {
-  top: 400px;
-  left: 400px;
-}
-#floor6 {
-  top: 450px;
-  left: 500px;
-}
-#floor7 {
-  top: 450px;
-  left: 600px;
-}
-
-#floor8 {
-  top: 400px;
-  left: 700px;
-}
-#floor9 {
-  top: 450px;
-  left: 800px;
-}
-#floor10 {
-  top: 450px;
-  left: 900px;
-}
-
-#floor11 {
-  top: 400px;
-  left: 1000px;
-}
-#floor12 {
-  top: 450px;
-  left: 1100px;
-}
-#floor13 {
-  top: 450px;
-  left: 1200px;
-}
-
-#floor14 {
-  top: 400px;
-  left: 1300px;
-}
-#floor15 {
-  top: 450px;
-  left: 1400px;
-}
 .arrow {
-  background: red;
+  background-image: url("../images/Arrow.png");
+  background-size: cover;
   position: absolute;
-  width: 20px;
-  height: 10px;
+  width: 70px;
+  height: 120px;
   /* body { */
   margin: 0;
 }
 
-.container {
+.box {
   background-image: linear-gradient(#00b4ff, white);
   height: 100vh;
   position: relative;
-  width: 100vw;
+  width: 2200px;
 }
 
 .container_override {
@@ -119,25 +61,98 @@
   margin-top: -350px;
 }
 
-.floor {
+#floor1 {
   bottom: 0;
   display: inline-block;
   position: absolute;
 }
 
-.floor2 {
+#floor2 {
   bottom: 0;
   display: inline-block;
-  margin-left: 150px;
+  left: 150px;
   position: absolute;
 }
 
-.spikes {
+#floor3 {
   bottom: 0;
   display: inline-block;
   margin-left: 300px;
   position: absolute;
 }
+#floor4 {
+  bottom: 0;
+  display: inline-block;
+  margin-left: 450px;
+  position: absolute;
+}
+#floor5 {
+  bottom: 0;
+  display: inline-block;
+  margin-left: 600px;
+  position: absolute;
+}
+#floor6 {
+  bottom: 0;
+  display: inline-block;
+  margin-left: 750px;
+  position: absolute;
+}
+#floor7 {
+  bottom: 0;
+  display: inline-block;
+  margin-left: 900px;
+  position: absolute;
+}
+#floor8 {
+  bottom: 0;
+  display: inline-block;
+  margin-left: 1049px;
+  position: absolute;
+}
+#floor9 {
+  bottom: 0;
+  display: inline-block;
+  margin-left: 1200px;
+  position: absolute;
+}
+#floor10 {
+  bottom: 0;
+  display: inline-block;
+  margin-left: 1305px;
+  position: absolute;
+}
+#floor11 {
+  bottom: 0;
+  display: inline-block;
+  margin-left: 1455px;
+  position: absolute;
+}
+#floor12 {
+  bottom: 0;
+  display: inline-block;
+  margin-left: 1605px;
+  position: absolute;
+}
+#floor13 {
+  bottom: 0;
+  display: inline-block;
+  margin-left: 1755px;
+  position: absolute;
+}
+#floor14 {
+  bottom: 0;
+  display: inline-block;
+  margin-left: 1900px;
+  position: absolute;
+}
+#floor15 {
+  bottom: 0;
+  display: inline-block;
+  margin-left: 2050px;
+  position: absolute;
+}
+
 
 .points {
   position: absolute;
@@ -175,7 +190,7 @@
     margin-left: -50%;
   }
   100% {
-    margin-left: 110%;
+    margin-left: 100%;
   }
 }
 
@@ -201,15 +216,14 @@
   animation-name: cloudsMovement;
   animation-duration: 35s;
   animation-iteration-count: infinite;
-  animation-delay: 7s;
-  padding-top: 100px;
+  animation-delay: 3s;
+  padding-top: 50px;
   position: absolute;
   margin-left: -2000px;
 }
 
 .enemy {
   position: absolute;
-  /* border: 1px solid red; */
   max-width: 300px;
 }
 

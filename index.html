@@ -7,90 +7,50 @@
   <head>
     <meta charset="utf-8">
     <title>AstonHack2018</title>
-    <link rel="stylesheet" href="css/master.css">
     <link rel="shortcut icon" type="image/png" href="images/favicon.ico"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/master.css">
     <script src="js/nightmode.js" charset="utf-8"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    <script src="js/enemy.js" charset="utf-8"></script>
     <script src="js/app.js" charset="utf-8"></script>
+    <script src="js/enemy.js" charset="utf-8"></script>
   </head>
   <body>
 
-    <div class="container">
-      <div class="player">
+    <div class="box">
 
-      </div>
-      <div id="floor1" class="floor">
-
-      </div>
-      <div id="floor2" class="floor">
-
-      </div>
-      <div id="floor3" class="floor">
-
-      </div>
-      <div id="floor3" class="floor">
-
-      </div>
-      <div id="floor4" class="floor">
-
-      </div>
-      <div id="floor5" class="floor">
-
-      </div>
-      <div id="floor6" class="floor">
-
-      </div>
-      <div id="floor7" class="floor">
-
-      </div>
-      <div id="floor8" class="floor">
-
-      </div>
-      <div id="floor9" class="floor">
-
-      </div>
-      <div id="floor10" class="floor">
-
-      </div>
-      <div id="floor11" class="floor">
-
-      </div>
-      <div id="floor12" class="floor">
-
-      </div>
-      <div id="floor13" class="floor">
-
-      </div>
-      <div id="floor14" class="floor">
-
-      </div>
-      <div id="floor15" class="floor">
-
-      </div>
       <img src="images/cloud.png" alt="Clouds" height="215" width="215" id="cloud1">
-      <img src="images/cloud.png" alt="Clouds" height="150" width="150" id="cloud2">
+      <img src="images/cloud.png" alt="Clouds" height="200" width="150" id="cloud2">
       <img src="images/cloud.png" alt="Clouds" height="200" width="200" id="cloud3">
-      <div class="player"><img src="images/spartan_character.png" alt="Spartan Character" height="150" width="150"></div>
-      <div class="floor"><img src="images/Floor.png" alt="Floor"></div>
-      <div class="floor2"><img src="images/Floor-Higher.png" alt="Floor Higher"></div>
-      <div class="bow"><img src="images/BowAndArrow.png" alt="Bow And Arrow"></div>
-      <div class="arrow"><img src="images/Arrow.png" alt="Arrow"></div>
-      <div class="spikes"><img src="images/Spikes.png" alt="Spikes"></div>
+      <div class="player"></div>
+      <div id= "floor1" class="floor"><img src="images/Floor.png" alt="Floor"></div>
+      <div id= "floor2" class="floor"><img src="images/Floor.png" alt="Floor"></div>
+      <div id= "floor3" class="floor"><img src="images/Floor.png" alt="Floor"></div>
+      <div id= "floor4" class="floor"><img src="images/Floor-Higher.png" alt="Floor Higher"></div>
+      <div id= "floor5" class="floor"><img src="images/Floor.png" alt="Floor"></div>
+      <div id= "floor6" class="floor"><img src="images/Floor.png" alt="Floor"></div>
+      <div id= "floor7" class="floor"><img src="images/Floor-Higher.png" alt="Floor Higher"></div>
+      <div id= "floor8" class="floor"><img src="images/Floor-Higher.png" alt="Floor Higher"></div>
+      <div id="floor9"class="spikes"><img src="images/Spikes.png" alt="Spikes"></div>
+      <div id= "floor10" class="floor"><img src="images/Floor-Higher.png" alt="Floor Higher"></div>
+      <div id= "floor11" class="floor"><img src="images/Floor.png" alt="Floor"></div>
+      <div id= "floor12" class="floor"><img src="images/Floor.png" alt="Floor"></div>
+      <div id= "floor13" class="floor"><img src="images/Floor.png" alt="Floor"></div>
+      <div id= "floor14" class="floor"><img src="images/Floor.png" alt="Floor"></div>
+      <div id= "floor15" class="floor"><img src="images/Floor-Higher.png" alt="Floor Higher"></div>
+      <!-- <div class="bow"><img src="images/BowAndArrow.png" alt="Bow And Arrow"></div> -->
       <img src="images/star.png" alt="Star" height="30" width="30" id="star">
 
-      <!-- <div class="dinasour"><img src="images/dinasour.png" alt="Enemy Character" height="175" width="300"></div> -->
+      <!-- <div class="coin"><img src="images/coin.png" alt="coin" height="30" width="30"></div> -->
 
-      <div class="coin"><img src="images/coin.png" alt="coin" height="30" width="30"></div>
-
-      <div class="healthBar">
-        <div class="healthBarReducing"></div>
-      </div>
-      <div class="points">
-        <span>000000</span>
-      </div>
+      <!-- <div class="healthBar"> -->
+        <!-- <div class="healthBarReducing"></div> -->
+      <!-- </div> -->
+      <!-- <div class="points"> -->
+        <!-- <span>000000</span> -->
+      <!-- </div> -->
     </div>
 
   </body>
