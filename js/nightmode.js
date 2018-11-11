@@ -1,8 +1,16 @@
 document.addEventListener("DOMContentLoaded", function() {
   var score = 0;
+  var coins = [];
+  // Temp variable to indicate player x coordinate
+  var playerXposition = 76;
 
   function dayAndNight() {
-    scoringSystem();
+    var coin1 = new coin(75, 100, 1);
+    coins.push(coin1);
+    var coin2 = new coin(100, 100, 2);
+    coins.push(coin2);
+
+    checkCoins();
 
     if (score <= 50) {
       document
@@ -25,10 +33,28 @@ document.addEventListener("DOMContentLoaded", function() {
 
   dayAndNight();
 
-  function scoringSystem() {
-    if (document.querySelector("#coin1") !== null) {
-      score += 100;
-      console.log(score);
+  function coin(xPos, yPos, id) {
+    this.xPos = xPos;
+    this.yPos = yPos;
+    this.id = id;
+    $(".container").append(
+      "<img src='images/coin.png' class='coin' id='coin-" + id + "'/>"
+    );
+    $("#coin-" + id).css({
+      left: xPos,
+      top: yPos
+    });
+  }
+
+  // Run each time the player moves
+  function checkCoins() {
+    // Checks if player has a higher x coordinate than the coin. If true then remove the coin and increase points.
+    for (var i = 0; i < coins.length; i++) {
+      if (playerXposition >= coins[i].xPos) {
+        $("#coin-" + coins[i].id).remove();
+        score += 5;
+        $("#scoreBoard").text(score);
+      }
     }
   }
 });
