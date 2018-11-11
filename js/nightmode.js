@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 // document.addEventListener("DOMContentLoaded", function() {
 //   var score = 0;
 //   var coins = [];
@@ -64,10 +63,9 @@
 //     }
 //   }
 // });
-=======
 document.addEventListener("DOMContentLoaded", function() {
   function dayAndNight() {
-    var score = 52;
+    var score = 49;
 
     if (score <= 50) {
       document
@@ -94,4 +92,3 @@ document.addEventListener("DOMContentLoaded", function() {
 
   dayAndNight();
 });
->>>>>>> 7ef0a405dd9fd3a3743052807cc3957581789ff2
