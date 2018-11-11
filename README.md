@@ -4,8 +4,10 @@ For the Aston Hackathon 2018, we have built a browser game where the objective i
 
 # Sreenshots
 
-![screen shot 2018-11-11 at 09 54 23](https://user-images.githubusercontent.com/24536293/48311472-3f06cc80-e598-11e8-8cd8-e25d4de17fec.png)
-![screen shot 2018-11-11 at 09 54 35](https://user-images.githubusercontent.com/24536293/48311473-3f06cc80-e598-11e8-965a-8bbd9f42bc8f.png)
+![screen shot 2018-11-11 at 09 54 23](https://user-images.githubusercontent.com/24536293/48311502-a7ee4480-e598-11e8-9106-5bee7def5628.png)
+
+![screen shot 2018-11-11 at 09 54 35](https://user-images.githubusercontent.com/24536293/48311503-a7ee4480-e598-11e8-8a0f-f409050556ef.png)
+
 
 
 # 1 Game - MVP
