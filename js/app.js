@@ -501,9 +501,9 @@ $(document).ready(function() {
   }
   function checkBulletWalls() {
     if (floorsTop[3] <= bulletTop + 75 && bulletTop + 75 <= floorsTop[0]) {
-      console.log("floors top 3 " + floorsTop[3]);
-      console.log("bullet top " + bulletTop);
-      console.log("floors top 0" + floorsTop[0]);
+      // console.log("floors top 3 " + floorsTop[3]);
+      // console.log("bullet top " + bulletTop);
+      // console.log("floors top 0" + floorsTop[0]);
       if (bulletRight >= floorsLeft[3] && bulletRight <= floorsRight[3]) {
         $(".arrow").remove();
       } else if (
@@ -580,7 +580,7 @@ $(document).ready(function() {
     // Checks if player has a higher x coordinate than the coin. If true then remove the coin and increase points.
 
 
-    console.log(playerRight);
+    // console.log(playerRight);
     for (var i = 0; i < coins.length; i++) {
       if (playerRight >= coins[i].xPos) {
         $("#coin-" + coins[i].id).remove();
