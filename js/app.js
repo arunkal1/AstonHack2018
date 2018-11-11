@@ -499,9 +499,9 @@ $(document).ready(function() {
   }
   function checkBulletWalls() {
     if (floorsTop[3] <= bulletTop + 75 && bulletTop + 75 <= floorsTop[0]) {
-      console.log("floors top 3 " + floorsTop[3]);
-      console.log("bullet top " + bulletTop);
-      console.log("floors top 0" + floorsTop[0]);
+      // console.log("floors top 3 " + floorsTop[3]);
+      // console.log("bullet top " + bulletTop);
+      // console.log("floors top 0" + floorsTop[0]);
       if (bulletRight >= floorsLeft[3] && bulletRight <= floorsRight[3]) {
         $(".arrow").remove();
       } else if (
