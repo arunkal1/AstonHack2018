@@ -478,7 +478,18 @@ $(document).ready(function() {
         $(".arrow").remove();
         $(".enemy").remove();
         $(".fireball").remove();
-        console.log("yeet");
+        alert("You Won!!!");
+        answer = prompt("Would you like to play again : 1) YES 2) NO");
+
+        switch (answer) {
+          case 1:
+            location.reload(true);
+            break;
+          case 2:
+            location.reload(true);
+          default:
+            location.reload(true);
+        }
       }
     } else if (!$(".enemy").is(":visible")) {
       $(".arrow").remove();
