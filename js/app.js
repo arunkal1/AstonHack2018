@@ -310,24 +310,6 @@ $(document).ready(function() {
       onFloor = false;
       thing = false;
     }
-    // if((playerBottom >= floorsTop[0] && playerLeft <= floorsRight[0] && playerRight >= floorsLeft[0])||(playerBottom >= floorsTop[1] && playerLeft <= floorsRight[1] && playerRight >= floorsLeft[1])){
-    //   clearInterval(jumpInt);
-    //   console.log("floor")
-    //   yvelocity = 0;
-    //   yacceleration = 0;
-    //
-    //
-    //
-    //   if (playerLeft >= floorsRight[0]) {
-    //     ypos = floorsTop[1]-player.height()-1;
-    //   }else{
-    //
-    //     ypos = floorsTop[0]-player.height()-1;
-    //   }
-    //   setCharPos();
-    //   pressed = false;
-    //   onFloor = true;
-    // }
 
     if (
       playerBottom >= floorsTop[0] &&
@@ -491,6 +473,7 @@ $(document).ready(function() {
       } else if (bulletRight >= $(".enemy").offset().left) {
         $(".arrow").remove();
         $(".enemy").remove();
+        $(".fireball").remove();
         console.log("yeet");
       }
     } else if (!$(".enemy").is(":visible")) {
@@ -525,8 +508,11 @@ $(document).ready(function() {
 
   function dayAndNight() {
     var coin1 = new coin(810, 920, 1);
+
+    floorPosition();
+    var coin1 = new coin(810, floorsTop[0] - 50, 1);
     coins.push(coin1);
-    var coin2 = new coin(300, 920, 2);
+    var coin2 = new coin(300, floorsTop[0] - 50, 2);
     coins.push(coin2);
 
     checkCoins();

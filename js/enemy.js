@@ -1,11 +1,12 @@
 $(function() {
   enemies = [];
-  // fireballs = [];
+  fireballs = [];
 
   var startx = $(".box").width() - 350;
   var starty = $(".box").height() - 290;
 
   addEnemy(20, 0, 0);
+  addFireBall(20,0,0);
 
   setInterval(function() {
     drawEnemies();
@@ -25,6 +26,19 @@ $(function() {
     this.xRight = $("#enemy-" + id).offset().left + $("#enemy-" + id).width();
   }
 
+  function FireBall(xPos, yPos, id){
+    this.xPos = xPos;
+    this.yPos = yPos;
+
+    this.id = id
+
+    this.left = true;
+
+    this.dead = false;
+
+    $(".box").append("<img src='images/Fire.png' id='fireball-" + id + "'class='fireball' />");
+  }
+
   function setEnemyPosition(xPos, yPos, id) {
     $("#enemy-" + id).css({
       left: xPos,
@@ -37,12 +51,15 @@ $(function() {
     enemies.push(enemy);
   }
 
+  function addFireBall(x,y,id){
+    var fireball = new FireBall(startx - x, starty - y, id);
+    fireballs.push(fireball);
+  }
+
+
   function drawEnemies() {
+
     for (var i = 0; i < enemies.length; i++) {
-      // if (enemies[i].xPos <= 0) {
-      //   enemies[i].left = false;
-      //   $("#enemy-" + i).attr("src","images/dinasour-1.png");
-      // }
 
       if (enemies[i].xPos <= 1300) {
         enemies[i].left = false;
@@ -54,35 +71,32 @@ $(function() {
         $("#enemy-" + i).attr("src","images/dinasour.png");
       }
 
+      if (fireballs[i].xPos >= $(".box").width() - 300 ||
+      fireballs[i].xPos <= 1200) {
+        fireballs[i].xPos = enemies[i].xPos;
+        // $("#fireballs-"+i).css({
+        //   display: "none"
+        // });
+      }
+
       if (enemies[i].left) {
         enemies[i].xPos -= 1;
+        fireballs[i].xPos-=3;
+        setFireBallPosition(fireballs[i].xPos,fireballs[i].yPos,i);
         setEnemyPosition(enemies[i].xPos, enemies[i].yPos, i);
       } else {
         enemies[i].xPos += 1;
+        setFireBallPosition(enemies[i].xPos+200,enemies[i].yPos,i);
         setEnemyPosition(enemies[i].xPos, enemies[i].yPos, i);
       }
+
     }
 
-    // function FireBall(xPos, yPos, id){
-    //   this.xPos = xPos;
-    //   this.yPos = yPos;
-    //
-    //   this.id = id
-    //
-    //   this.left = true;
-    //
-    //   this.dead = false;
-    //
-    //   $(".box").append("<div id='fireball-" + id + "'class='fireball' </div>");
-    // }
-    //
-    // function setFireBallPosition(xPos, yPos, id) {
-    //   $("#fireball-" + id).css({
-    //     left: xPos,
-    //     top: yPos
-    //   });
-    // }
-    //
-    // var fireball = new FireBall(10,10,0);
+    function setFireBallPosition(xPos, yPos, id) {
+      $("#fireball-" + id).css({
+        left: xPos,
+        top: yPos
+      });
+    }
   }
 });
