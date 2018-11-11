@@ -3,17 +3,13 @@ $(document).ready(function() {
   var board = $(".container");
 
   var floor = $(".floor");
-
   var floors = [];
   function getFloors() {
     for (i = 1; i < 16; i++) {
       floors.push($("#floor" + i));
     }
-    // console.log(floors);
   }
   getFloors();
-
-  var canMoveRight;
 
   var jumpInt;
   var bullet;
@@ -50,11 +46,7 @@ $(document).ready(function() {
   var playerXpos = 0;
   var playerYpos = 0;
 
-  var floorsLeft = [];
-  var floorsRight = [];
-  var floorsTop = [];
-  var floorsBott = [];
-  var onFloor = true;
+  var onFloor = false;
 
   $(document).keydown(function(event) {
     keyPress[event.which] = true;
@@ -63,74 +55,29 @@ $(document).ready(function() {
     keyPress[event.which] = false;
   });
 
-  floorPosition();
   function movePlayer() {
     boardPosition();
     characterPosition();
-    if (
-      playerRight < floorsLeft[1] - 1 &&
-      playerRight > floorsLeft[0] &&
-      playerBottom < floorsTop[0]
-    ) {
-      canMoveRight = true;
-    } else if (
-      (playerRight =
-        floorsLeft[1] &&
-        playerRight > floorsLeft[0] &&
-        playerBottom < floorsTop[1] &&
-        playerBottom < floorsTop[0])
-    ) {
-      canMoveRight = true;
-    } else if (
-      playerRight < floorsLeft[2] - 1 &&
-      playerRight > floorsLeft[1] &&
-      playerBottom < floorsTop[1]
-    ) {
-      canMoveRight = true;
-    } else if (
-      playerRight < floorsLeft[3] - 3 &&
-      playerRight > floorsLeft[2] &&
-      playerBottom < floorsTop[2]
-    ) {
-      canMoveRight = true;
-    } else if (
-      playerRight < floorsLeft[4] - 3 &&
-      playerRight > floorsLeft[3] &&
-      playerBottom < floorsTop[3]
-    ) {
-      canMoveRight = true;
-    } else if (
-      playerRight < floorsLeft[5] - 3 &&
-      playerRight > floorsLeft[4] &&
-      playerBottom < floorsTop[4]
-    ) {
-      canMoveRight = true;
-    } else if (
-      playerRight < floorsLeft[6] - 3 &&
-      playerRight > floorsLeft[5] &&
-      playerBottom < floorsTop[5]
-    ) {
-      canMoveRight = true;
-    } else if (
-      playerRight < floorsLeft[7] - 3 &&
-      playerRight > floorsLeft[6] &&
-      playerBottom < floorsTop[6]
-    ) {
-      canMoveRight = true;
-    } else if (
-      playerRight < floorsLeft[8] - 3 &&
-      playerRight > floorsLeft[7] &&
-      playerBottom < floorsTop[7]
-    ) {
-      canMoveRight = true;
-    } else {
-      canMoveRight = false;
-      console.log("yeet");
-      // console.log(playerRight);
-      // console.log(floorsLeft[0]);
-      // console.log(playerBottom);
-      // console.log(floorsTop[0]);
+
+    //horizontal movement
+    if (playerRight <= boardRight) {
+      if (keyPress[39]) {
+        playerXpos += speed;
+      }
     }
+    if (playerLeft >= boardLeft) {
+      if (keyPress[37]) {
+        playerXpos -= speed;
+      }
+    }
+    //Shooting control
+    if (keyPress[32]) {
+      shoot();
+    }
+    //Changing player position
+    player.css({
+      left: playerXpos + "px"
+    });
   }
 
   function checkFloating() {
@@ -140,54 +87,77 @@ $(document).ready(function() {
       playerBottom < floorsTop[0] - 1
     ) {
       onFloor = false;
-    } else if (playerRight < floorsLeft[1] && playerBottom < floorsTop[0] - 1) {
+    } else if (playerRight < floorsLeft[1] && playerBottom < floorsTop[0] - 2) {
       onFloor = false;
     } else if (
       playerRight < floorsLeft[2] &&
-      playerLeft > floorsLeft[0] &&
+      playerLeft > floorsRight[0] &&
       playerBottom < floorsTop[1] - 1
     ) {
       onFloor = false;
     } else if (
       playerRight < floorsLeft[3] &&
-      playerLeft > floorsLeft[1] &&
+      playerLeft > floorsRight[1] &&
       playerBottom < floorsTop[2] - 1
     ) {
       onFloor = false;
     } else if (
       playerRight < floorsLeft[4] &&
-      playerLeft > floorsLeft[2] &&
+      playerLeft > floorsRight[2] &&
       playerBottom < floorsTop[3] - 1
     ) {
       onFloor = false;
     } else if (
       playerRight < floorsLeft[5] &&
-      playerLeft > floorsLeft[3] &&
+      playerLeft > floorsRight[3] &&
       playerBottom < floorsTop[4] - 1
     ) {
       onFloor = false;
     } else if (
       playerRight < floorsLeft[6] &&
-      playerLeft > floorsLeft[4] &&
+      playerLeft > floorsRight[4] &&
       playerBottom < floorsTop[5] - 1
     ) {
       onFloor = false;
     } else if (
       playerRight < floorsLeft[7] &&
-      playerLeft > floorsLeft[5] &&
+      playerLeft > floorsRight[5] &&
       playerBottom < floorsTop[6] - 1
+    ) {
+      onFloor = false;
+    } else if (
+      playerRight < floorsLeft[8] &&
+      playerLeft > floorsRight[6] &&
+      playerBottom < floorsTop[7] - 1
+    ) {
+      onFloor = false;
+    } else if (
+      playerRight < floorsLeft[9] &&
+      playerLeft > floorsRight[7] &&
+      playerBottom < floorsTop[8] - 1
+    ) {
+      onFloor = false;
+    } else if (
+      playerRight < floorsLeft[10] &&
+      playerLeft > floorsRight[8] &&
+      playerBottom < floorsTop[9] - 1
+    ) {
+      onFloor = false;
+    } else if (
+      playerRight < floorsLeft[11] &&
+      playerLeft > floorsRight[9] &&
+      playerBottom < floorsTop[10] - 1
     ) {
       onFloor = false;
     } else {
       onFloor = true;
     }
-
-    if (onFloor == false) {
-      yacceleration = 0.08;
+    if (onFloor == false && pressed == false) {
+      yacceleration = 0.075;
       setCharPos();
       move();
-      verticalCollisions();
-      floorCollision();
+      // verticalCollisions();
+      // floorCollision();
     }
     verticalCollisions();
     floorCollision();
@@ -214,12 +184,18 @@ $(document).ready(function() {
   var boardTop;
   var boardBott;
 
+  var floorsLeft = [];
+  var floorsRight = [];
+  var floorsTop = [];
+  var floorsBott = [];
+
   $("body").keydown(function(e) {
     //start the game with spacebar
     if (e.keyCode == 38 && pressed == false && jumping == false) {
       jump();
+      ypos = playerTop;
       jumping = true;
-      yacceleration = 0.08;
+      yacceleration = 0.075;
       yvelocity = -4;
       pressed = true;
       onFloor = false;
@@ -253,6 +229,7 @@ $(document).ready(function() {
     boardRight = boardLeft + board.width();
     boardBott = boardTop + board.height();
   }
+
   function floorPosition() {
     for (floor of floors) {
       floorsLeft.push(floor.offset().left);
@@ -261,20 +238,15 @@ $(document).ready(function() {
       floorsRight.push(floor.offset().left + floor.width());
       floorsBott.push(floor.offset().top + floor.height());
     }
-    // console.log(floors.length);
   }
 
   function jump() {
     jumpInt = setInterval(function() {
       boardPosition();
-
       characterPosition();
-
       //move the player and check if it has hit the ground
       setCharPos();
       move();
-      verticalCollisions();
-      floorCollision();
     }, 5);
   }
   function setCharPos() {
@@ -309,7 +281,9 @@ $(document).ready(function() {
     if (jumping == true) {
       jumping = false;
       onFloor = false;
+      thing = false;
     }
+
     if (
       playerBottom >= floorsTop[0] &&
       playerLeft <= floorsRight[0] &&
@@ -372,7 +346,6 @@ $(document).ready(function() {
 
   function moveUp() {
     clearInterval(jumpInt);
-    // console.log("floor");
     yvelocity = 0;
     yacceleration = 0;
     setCharPos();
@@ -385,7 +358,7 @@ $(document).ready(function() {
       $(".container").append("<div class = 'arrow'></div>");
       $(".arrow").css({
         top: playerTop + "px",
-        left: playerLeft - 200 + "px"
+        left: playerLeft + "px"
       });
     }
   }
@@ -397,28 +370,10 @@ $(document).ready(function() {
         left: bulletLeft + "px"
       });
     }
-  }, 10);
-
-  function can_Move() {
-    if (canMoveRight) {
-      if (keyPress[39]) {
-        playerXpos += speed;
-        player.css({
-          left: playerXpos + "px"
-        });
-      }
-    }
-    if (keyPress[37]) {
-      playerXpos -= speed;
-      player.css({
-        left: playerXpos + "px"
-      });
-    }
-  }
+  }, 50);
 
   setInterval(function() {
     movePlayer();
-    can_Move();
 
     checkFloating();
   }, 5);
