@@ -461,7 +461,11 @@ $(document).ready(function() {
     checkFloating();
   }, 5);
 
-  floorPosition();
+  setInterval(function(){
+    dayAndNight();
+  },1000)
+
+  // floorPosition();
 
   function checkBulletDino() {
     if ($(".enemy").is(":visible")) {
@@ -501,29 +505,23 @@ $(document).ready(function() {
     }
   }
 
-  var score = 40;
+  var score = 0;
   var coins = [];
   // Temp variable to indicate player x coordinate
-  var playerXposition = 76;
+  // var playerXposition = 76;
 
   floorPosition();
   var coin1 = new coin(810, floorsTop[0] - 50, 1);
   coins.push(coin1);
   var coin2 = new coin(300, floorsTop[0] - 50, 2);
   coins.push(coin2);
+
   function dayAndNight() {
-    floorPosition();
-    var coin1 = new coin(810, floorsTop[0] - 50, 1);
-    coins.push(coin1);
-    var coin2 = new coin(300, floorsTop[0] - 50, 2);
-    coins.push(coin2);
+
 
     checkCoins();
     console.log(score);
-    if (score <= 4) {
-      console.log(score);
-
-      if (score <= 20) {
+      if (score <= 4) {
         document.getElementsByClassName("box")[0].classList.add("box");
         var star = document.getElementById("star");
         star.parentElement.removeChild(star);
@@ -531,7 +529,7 @@ $(document).ready(function() {
         star2.parentElement.removeChild(star2);
         var star3 = document.getElementById("star3");
         star3.parentElement.removeChild(star3);
-      } else if (score >= 21) {
+      } else if (score > 4) {
         document
           .getElementsByClassName("box")[0]
           .classList.add("container_override");
@@ -542,10 +540,10 @@ $(document).ready(function() {
         cloud2.parentElement.removeChild(cloud2);
         cloud3.parentElement.removeChild(cloud3);
       }
-    }
+    
   }
 
-  dayAndNight();
+  // dayAndNight();
 
   function coin(xPos, yPos, id) {
     this.xPos = xPos;
@@ -565,7 +563,7 @@ $(document).ready(function() {
   function checkCoins() {
     // Checks if player has a higher x coordinate than the coin. If true then remove the coin and increase points.
 
-    console.log(playerRight);
+    // console.log(playerRight);
     for (var i = 0; i < coins.length; i++) {
       if (playerRight >= coins[i].xPos) {
         $("#coin-" + coins[i].id).remove();
