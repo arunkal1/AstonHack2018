@@ -2,24 +2,39 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-
-  </head>
-  <head>
-    <meta charset="utf-8">
     <title>AstonHack2018</title>
     <!-- <link href="https://fonts.googleapis.com/css?family=M+PLUS+1p" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet"> -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="css/master.css">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" onkeyup=""integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="js/app.js" charset="utf-8"></script>
+    <link rel="shortcut icon" type="image/png" href="images/favicon.ico"/>
+    <script src="js/nightmode.js" charset="utf-8"></script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <!--  Enemy JS File -->
+    <script src="js/enemy.js" charset="utf-8"></script>
+    <script src="js/health.js" charset="utf-8"></script>
   </head>
   <body>
 
-    <div class="container">
-      <div class="player">
+    <div class="container_start">
+      <script>
+        $(document).ready(function(){
+          $(".btn1").click(function(){
+              $(".container_start").hide();
+              $(".container").show();
+          });
+        });
+      </script>
+      <button class="btn1">Start Game</button>
+    </div>
 
-      </div>
+    <div class="container">
       <div id="floor1" class="floor">
 
       </div>
@@ -69,7 +84,30 @@
 
       </div>
 
+      <img src="images/cloud.png" alt="Clouds" height="215" width="215" id="cloud1">
+      <img src="images/cloud.png" alt="Clouds" height="150" width="150" id="cloud2">
+      <img src="images/cloud.png" alt="Clouds" height="200" width="200" id="cloud3">
+      <div class="player"><img src="images/spartan_character.png" alt="Spartan Character" height="150" width="150"></div>
+      <div class="floor"><img src="images/Floor.png" alt="Floor"></div>
+      <div class="floor2"><img src="images/Floor-Higher.png" alt="Floor Higher"></div>
+      <div class="bow"><img src="images/BowAndArrow.png" alt="Bow And Arrow"></div>
+      <div class="arrow"><img src="images/Arrow.png" alt="Arrow"></div>
+      <div class="spikes"><img src="images/Spikes.png" alt="Spikes"></div>
+      <img src="images/star.png" alt="Star" height="30" width="30" id="star">
+      <img src="images/star.png" alt="Star" height="30" width="30" id="star2">
+      <img src="images/star.png" alt="Star" height="30" width="30" id="star3">
+      <div class="fireball"><img src="images/Fire.png" alt="Fire"></div>
 
+      <div class="dinasour"><img src="images/dinasour.png" alt="Enemy Character" height="175" width="300"></div>
+      <div class="unicorn"><img src="images/unicorn.png" alt="Enemy Character" height="200" width="200"></div>
+
+
+      <div class="healthBar">
+        <div class="healthBarReducing"></div>
+      </div>
+      <div class="points">
+        <span id="scoreBoard">000000</span>
+      </div>
     </div>
 
   </body>
