@@ -93,7 +93,7 @@ $(function() {
         setEnemyPosition(enemies[i].xPos, enemies[i].yPos, i);
       }
     }
-
+    // comment
     function setFireBallPosition(xPos, yPos, id) {
       $("#fireball-" + id).css({
         left: xPos,
