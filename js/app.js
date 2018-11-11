@@ -516,6 +516,9 @@ $(document).ready(function() {
         bulletRight <= floorsRight[14]
       ) {
         $(".arrow").remove();
+      }
+    }
+  }
 
   var score = 0;
   var coins = [];
@@ -525,9 +528,10 @@ $(document).ready(function() {
 
   function dayAndNight() {
 
-    var coin1 = new coin(810, 920, 1);
+    floorPosition();
+    var coin1 = new coin(810, floorsTop[0]-50, 1);
     coins.push(coin1);
-    var coin2 = new coin(300, 920, 2);
+    var coin2 = new coin(300, floorsTop[0]-50, 2);
     coins.push(coin2);
 
     checkCoins();
@@ -583,7 +587,6 @@ $(document).ready(function() {
         coins.splice(i,1)
         score += 5;
         $("#scoreBoard").text(score);
->>>>>>> f08942dbd70dcce9c6e016af0545bbf084342e1c
       }
     }
   }
