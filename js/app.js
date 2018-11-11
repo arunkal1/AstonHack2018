@@ -197,8 +197,6 @@ $(document).ready(function() {
   var yacceleration;
   var yvelocity;
 
-
-
   var jumping = false;
   var pressed = false;
 
@@ -470,12 +468,10 @@ $(document).ready(function() {
   setInterval(function() {
     if ($(".arrow").is(":visible")) {
       bulletPosition();
-      bulletLeft += 25;
-      $(".arrow").css({
-        left: bulletLeft + "px"
-      });
+      checkBulletDino();
+      checkBulletWalls();
     }
-  }, 50);
+  }, 5);
 
   setInterval(function() {
     movePlayer();
@@ -484,4 +480,41 @@ $(document).ready(function() {
   }, 5);
 
   floorPosition();
+
+  function checkBulletDino() {
+    if ($(".enemy").is(":visible")) {
+      if (bulletRight <= $(".enemy").offset().left) {
+        bulletLeft += 7;
+        $(".arrow").css({
+          left: bulletLeft + "px"
+        });
+      } else if (bulletRight >= $(".enemy").offset().left) {
+        $(".arrow").remove();
+        $(".enemy").remove();
+        console.log("yeet");
+      }
+    } else if (!$(".enemy").is(":visible")) {
+      $(".arrow").remove();
+    }
+  }
+  function checkBulletWalls() {
+    if (floorsTop[3] <= bulletTop + 75 && bulletTop + 75 <= floorsTop[0]) {
+      console.log("floors top 3 " + floorsTop[3]);
+      console.log("bullet top " + bulletTop);
+      console.log("floors top 0" + floorsTop[0]);
+      if (bulletRight >= floorsLeft[3] && bulletRight <= floorsRight[3]) {
+        $(".arrow").remove();
+      } else if (
+        bulletRight >= floorsLeft[6] &&
+        bulletRight <= floorsRight[6]
+      ) {
+        $(".arrow").remove();
+      } else if (
+        bulletRight >= floorsLeft[14] &&
+        bulletRight <= floorsRight[14]
+      ) {
+        $(".arrow").remove();
+      }
+    }
+  }
 });
