@@ -231,7 +231,7 @@
 .container_override #star {
   position: absolute;
   animation-name: starsMovement;
-  animation-duration: 35s;
+  animation-duration: 20s;
   animation-iteration-count: infinite;
   margin-left: -100px;
   margin-top: 50px;
@@ -240,7 +240,7 @@
 .container_override #star2 {
   position: absolute;
   animation-name: starsMovement;
-  animation-duration: 35s;
+  animation-duration: 20s;
   animation-delay: 3s;
   animation-iteration-count: infinite;
   margin-left: -100px;
@@ -250,7 +250,7 @@
 .container_override #star3 {
   position: absolute;
   animation-name: starsMovement;
-  animation-duration: 35s;
+  animation-duration: 20s;
   animation-delay: 4s;
   animation-iteration-count: infinite;
   margin-left: -100px;
