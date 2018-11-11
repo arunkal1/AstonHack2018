@@ -103,6 +103,22 @@ $(document).ready(function() {
       onFloor = false
     }else if(playerRight < floorsLeft[7] && playerLeft > floorsRight[5] && playerBottom < floorsTop[6]-1){
       onFloor = false
+    }else if(playerRight < floorsLeft[8] && playerLeft > floorsRight[6] && playerBottom < floorsTop[7]-1){
+      onFloor = false
+    }else if(playerRight < floorsLeft[9] && playerLeft > floorsRight[7] && playerBottom < floorsTop[8]-1){
+      onFloor = false
+    }else if(playerRight < floorsLeft[10] && playerLeft > floorsRight[8] && playerBottom < floorsTop[9]-1){
+      onFloor = false
+    }else if(playerRight < floorsLeft[11] && playerLeft > floorsRight[9] && playerBottom < floorsTop[10]-1){
+      onFloor = false
+    }else if(playerRight < floorsLeft[12] && playerLeft > floorsRight[10] && playerBottom < floorsTop[11]-1){
+      onFloor = false
+    }else if(playerRight < floorsLeft[13] && playerLeft > floorsRight[11] && playerBottom < floorsTop[12]-1){
+      onFloor = false
+    }else if(playerRight < floorsLeft[14] && playerLeft > floorsRight[12] && playerBottom < floorsTop[13]-1){
+      onFloor = false
+    }else if(playerRight < floorsLeft[15] && playerLeft > floorsRight[13] && playerBottom < floorsTop[14]-1){
+      onFloor = false
     }else{
       onFloor = true;
     }
@@ -292,6 +308,30 @@ $(document).ready(function() {
        moveUp()
     }else if (playerBottom >= floorsTop[7] && playerLeft <= floorsRight[7] && playerRight >= floorsLeft[7]) {
        ypos = floorsTop[7]-player.height()-1;
+       moveUp()
+    }else if (playerBottom >= floorsTop[8] && playerLeft <= floorsRight[8] && playerRight >= floorsLeft[8]) {
+       ypos = floorsTop[8]-player.height()-1;
+       moveUp()
+    }else if (playerBottom >= floorsTop[9] && playerLeft <= floorsRight[9] && playerRight >= floorsLeft[9]) {
+       ypos = floorsTop[9]-player.height()-1;
+       moveUp()
+    }else if (playerBottom >= floorsTop[10] && playerLeft <= floorsRight[10] && playerRight >= floorsLeft[10]) {
+       ypos = floorsTop[10]-player.height()-1;
+       moveUp()
+    }else if (playerBottom >= floorsTop[11] && playerLeft <= floorsRight[11] && playerRight >= floorsLeft[11]) {
+       ypos = floorsTop[11]-player.height()-1;
+       moveUp()
+    }else if (playerBottom >= floorsTop[12] && playerLeft <= floorsRight[12] && playerRight >= floorsLeft[12]) {
+       ypos = floorsTop[12]-player.height()-1;
+       moveUp()
+    }else if (playerBottom >= floorsTop[13] && playerLeft <= floorsRight[13] && playerRight >= floorsLeft[13]) {
+       ypos = floorsTop[13]-player.height()-1;
+       moveUp()
+    }else if (playerBottom >= floorsTop[14] && playerLeft <= floorsRight[14] && playerRight >= floorsLeft[14]) {
+       ypos = floorsTop[14]-player.height()-1;
+       moveUp()
+    }else if (playerBottom >= floorsTop[15] && playerLeft <= floorsRight[15] && playerRight >= floorsLeft[15]) {
+       ypos = floorsTop[15]-player.height()-1;
        moveUp()
     }else{
 
