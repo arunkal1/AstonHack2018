@@ -1,0 +1,277 @@
+.player {
+  height: 100px;
+  width: 50px;
+  position: absolute;
+  /* background: yellowgreen; */
+  background-image: url("../images/spartan_character.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  top: 860px;
+}
+
+/* .box {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  background: black;
+  margin-right: 0;
+  margin-left: 0;
+} */
+
+/* .floor {
+  height: 10px;
+  width: 100px;
+  background: greenyellow;
+  position: absolute;
+} */
+
+.arrow {
+  background-image: url("../images/Arrow.png");
+  background-size: cover;
+  position: absolute;
+  width: 70px;
+  height: 120px;
+  /* body { */
+  margin: 0;
+}
+
+.box {
+  background-image: linear-gradient(#00b4ff, white);
+  height: 100vh;
+  position: relative;
+  width: 2200px;
+}
+
+.container_override {
+  /* Below is for night mode */
+  background-image: linear-gradient(black, #143642);
+  height: 100vh;
+  position: relative;
+  width: 2200px;
+}
+
+/* .container_start {
+  background-image: linear-gradient(red, white, blue);
+  height: 100vh;
+  position: relative;
+  width: 100vw;
+} */
+
+#floor1 {
+  bottom: 0;
+  display: inline-block;
+  position: absolute;
+}
+
+#floor2 {
+  bottom: 0;
+  display: inline-block;
+  left: 150px;
+  position: absolute;
+}
+
+#floor3 {
+  bottom: 0;
+  display: inline-block;
+  margin-left: 300px;
+  position: absolute;
+}
+#floor4 {
+  bottom: 0;
+  display: inline-block;
+  margin-left: 450px;
+  position: absolute;
+}
+#floor5 {
+  bottom: 0;
+  display: inline-block;
+  margin-left: 600px;
+  position: absolute;
+}
+#floor6 {
+  bottom: 0;
+  display: inline-block;
+  margin-left: 750px;
+  position: absolute;
+}
+#floor7 {
+  bottom: 0;
+  display: inline-block;
+  margin-left: 900px;
+  position: absolute;
+}
+#floor8 {
+  bottom: 0;
+  display: inline-block;
+  margin-left: 1049px;
+  position: absolute;
+}
+#floor9 {
+  bottom: 0;
+  display: inline-block;
+  margin-left: 1200px;
+  position: absolute;
+}
+#floor10 {
+  bottom: 0;
+  display: inline-block;
+  margin-left: 1305px;
+  position: absolute;
+}
+#floor11 {
+  bottom: 0;
+  display: inline-block;
+  margin-left: 1455px;
+  position: absolute;
+}
+#floor12 {
+  bottom: 0;
+  display: inline-block;
+  margin-left: 1605px;
+  position: absolute;
+}
+#floor13 {
+  bottom: 0;
+  display: inline-block;
+  margin-left: 1755px;
+  position: absolute;
+}
+#floor14 {
+  bottom: 0;
+  display: inline-block;
+  margin-left: 1900px;
+  position: absolute;
+}
+#floor15 {
+  bottom: 0;
+  display: inline-block;
+  margin-left: 2050px;
+  position: absolute;
+}
+
+.points {
+  position: absolute;
+  left: 2vw;
+  top: 2vh;
+  z-index: 1;
+}
+
+.points span {
+  font-size: 40px;
+}
+
+.healthBar {
+  height: 5vh;
+  width: 25vw;
+  border: 2.5px solid black;
+  background-color: black;
+  position: fixed;
+  right: 2vw;
+  top: 2vh;
+  z-index: 1;
+}
+
+.healthBarReducing {
+  height: 5vh;
+  width: 25vw;
+  background-color: red;
+  position: absolute;
+  z-index: 1;
+}
+
+/* Keyframe Animation */
+@keyframes cloudsMovement {
+  0% {
+    margin-left: -50%;
+  }
+  100% {
+    margin-left: 100%;
+  }
+}
+
+@keyframes starsMovement {
+  0% {
+    margin-left: -50%;
+    transform: rotate(0deg);
+  }
+  100% {
+    margin-left: 100%;
+    transform: rotate(240deg);
+  }
+}
+
+#cloud1 {
+  position: absolute;
+  animation-name: cloudsMovement;
+  animation-duration: 35s;
+  animation-iteration-count: infinite;
+  margin-left: -1000px;
+}
+
+#cloud2 {
+  animation-name: cloudsMovement;
+  animation-duration: 35s;
+  animation-iteration-count: infinite;
+  animation-delay: 3s;
+  padding-top: 200px;
+  position: absolute;
+  margin-left: -1000px;
+}
+
+#cloud3 {
+  animation-name: cloudsMovement;
+  animation-duration: 35s;
+  animation-iteration-count: infinite;
+  animation-delay: 3s;
+  padding-top: 50px;
+  position: absolute;
+  margin-left: -2000px;
+}
+
+.container_override #star {
+  position: absolute;
+  animation-name: starsMovement;
+  animation-duration: 35s;
+  animation-iteration-count: infinite;
+  margin-left: -100px;
+  margin-top: 50px;
+}
+
+.container_override #star2 {
+  position: absolute;
+  animation-name: starsMovement;
+  animation-duration: 35s;
+  animation-delay: 3s;
+  animation-iteration-count: infinite;
+  margin-left: -100px;
+  margin-top: 110px;
+}
+
+.container_override #star3 {
+  position: absolute;
+  animation-name: starsMovement;
+  animation-duration: 35s;
+  animation-delay: 4s;
+  animation-iteration-count: infinite;
+  margin-left: -100px;
+  margin-top: 80px;
+}
+
+.enemy {
+  position: absolute;
+  max-width: 300px;
+}
+
+.fireball {
+  position: absolute;
+}
+
+.coin {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+}
+
+#scoreBoard {
+  position: fixed;
+}

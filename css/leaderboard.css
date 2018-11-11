@@ -1,0 +1,13 @@
+body {
+  margin: auto;
+  text-align: center;
+}
+
+.scores {
+  text-align: center;
+}
+
+#scoreTable {
+  width: 300px;
+  margin: auto;
+}
