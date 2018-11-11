@@ -29,10 +29,29 @@ document.addEventListener("DOMContentLoaded", function() {
 
   dayAndNight();
 
-  function scoringSystem() {
-    if (document.querySelector("#coin1") !== null) {
-      score += 100;
-      console.log(score);
+  function coin(xPos, yPos, id) {
+    this.xPos = xPos;
+    this.yPos = yPos;
+    this.id = id;
+    $(".container").append(
+      "<img src='images/coin.png' class='coin' id='coin-" + id + "'/>"
+    );
+    $("#coin-" + id).css({
+      left: xPos,
+      top: yPos
+    });
+  }
+
+  // Score:
+  // Run each time the player moves
+  function checkCoins() {
+    // Checks if player has a higher x coordinate than the coin. If true then remove the coin and increase points.
+    for (var i = 0; i < coins.length; i++) {
+      if (playerXposition >= coins[i].xPos) {
+        $("#coin-" + coins[i].id).remove();
+        score += 5;
+        $("#scoreBoard").text(score);
+      }
     }
   }
 });
