@@ -310,24 +310,6 @@ $(document).ready(function() {
       onFloor = false;
       thing = false;
     }
-    // if((playerBottom >= floorsTop[0] && playerLeft <= floorsRight[0] && playerRight >= floorsLeft[0])||(playerBottom >= floorsTop[1] && playerLeft <= floorsRight[1] && playerRight >= floorsLeft[1])){
-    //   clearInterval(jumpInt);
-    //   console.log("floor")
-    //   yvelocity = 0;
-    //   yacceleration = 0;
-    //
-    //
-    //
-    //   if (playerLeft >= floorsRight[0]) {
-    //     ypos = floorsTop[1]-player.height()-1;
-    //   }else{
-    //
-    //     ypos = floorsTop[0]-player.height()-1;
-    //   }
-    //   setCharPos();
-    //   pressed = false;
-    //   onFloor = true;
-    // }
 
     if (
       playerBottom >= floorsTop[0] &&
@@ -479,7 +461,11 @@ $(document).ready(function() {
     checkFloating();
   }, 5);
 
-  floorPosition();
+  setInterval(function() {
+    dayAndNight();
+  }, 1000);
+
+  // floorPosition();
 
   function checkBulletDino() {
     if ($(".enemy").is(":visible")) {
@@ -491,7 +477,19 @@ $(document).ready(function() {
       } else if (bulletRight >= $(".enemy").offset().left) {
         $(".arrow").remove();
         $(".enemy").remove();
-        console.log("yeet");
+        $(".fireball").remove();
+        alert("You Won!!!");
+        answer = prompt("Would you like to play again : 1) YES 2) NO");
+
+        switch (answer) {
+          case 1:
+            location.reload(true);
+            break;
+          case 2:
+            location.reload(true);
+          default:
+            location.reload(true);
+        }
       }
     } else if (!$(".enemy").is(":visible")) {
       $(".arrow").remove();
@@ -521,18 +519,18 @@ $(document).ready(function() {
   var score = 0;
   var coins = [];
   // Temp variable to indicate player x coordinate
-  var playerXposition = 76;
+  // var playerXposition = 76;
+
+  floorPosition();
+  var coin1 = new coin(810, floorsTop[0] - 50, 1);
+  coins.push(coin1);
+  var coin2 = new coin(300, floorsTop[0] - 50, 2);
+  coins.push(coin2);
 
   function dayAndNight() {
-    floorPosition();
-    var coin1 = new coin(810, floorsTop[0] - 50, 1);
-    coins.push(coin1);
-    var coin2 = new coin(300, floorsTop[0] - 50, 2);
-    coins.push(coin2);
-
     checkCoins();
-
-    if (score <= 20) {
+    // console.log(score);
+    if (score <= 4) {
       document.getElementsByClassName("box")[0].classList.add("box");
       var star = document.getElementById("star");
       star.parentElement.removeChild(star);
@@ -541,7 +539,7 @@ $(document).ready(function() {
       var star3 = document.getElementById("star3");
       star3.parentElement.removeChild(star3);
       $("#scoreBoard").css("color", "black");
-    } else if (score >= 21) {
+    } else if (score > 4) {
       document
         .getElementsByClassName("box")[0]
         .classList.add("container_override");
@@ -555,7 +553,7 @@ $(document).ready(function() {
     }
   }
 
-  dayAndNight();
+  // dayAndNight();
 
   function coin(xPos, yPos, id) {
     this.xPos = xPos;
@@ -575,7 +573,7 @@ $(document).ready(function() {
   function checkCoins() {
     // Checks if player has a higher x coordinate than the coin. If true then remove the coin and increase points.
 
-    console.log(playerRight);
+    // console.log(playerRight);
     for (var i = 0; i < coins.length; i++) {
       if (playerRight >= coins[i].xPos) {
         $("#coin-" + coins[i].id).remove();
