@@ -50,9 +50,11 @@ $(document).ready(function() {
 
   $(document).keydown(function(event) {
     keyPress[event.which] = true;
+
   });
   $(document).keyup(function(event) {
     keyPress[event.which] = false;
+
   });
 
   function movePlayer() {
