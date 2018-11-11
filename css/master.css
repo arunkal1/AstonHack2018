@@ -165,7 +165,7 @@
   width: 25vw;
   border: 2.5px solid black;
   background-color: black;
-  position: absolute;
+  position: fixed;
   right: 2vw;
   top: 2vh;
   z-index: 1;
@@ -270,4 +270,8 @@
   position: absolute;
   width: 30px;
   height: 30px;
+}
+
+#scoreBoard {
+  position: fixed;
 }
