@@ -12,7 +12,7 @@ For the Aston Hackathon 2018, we have built a browser game where the objective i
 
 # 1 Game - MVP
 
-For a mvp we have specified the following requirements.
+For an mvp, we have specified the following requirements.
 
 ## Technologies
 
@@ -40,4 +40,4 @@ For a mvp we have specified the following requirements.
 
 ### SPARTAN SHOOTS VILLAINS
 
-- To win the game, kill the villans.
+- To win the game, kill the villians.
