@@ -47,17 +47,15 @@
   background-image: linear-gradient(black, #143642);
   height: 100vh;
   position: relative;
-  width: 100vw;
+  width: 2200px;
 }
 
-.container_override #star {
-  position: absolute;
-  animation-name: cloudsMovement;
-  animation-duration: 35s;
-  animation-iteration-count: infinite;
-  margin-left: -1000px;
-  margin-top: -350px;
-}
+/* .container_start {
+  background-image: linear-gradient(red, white, blue);
+  height: 100vh;
+  position: relative;
+  width: 100vw;
+} */
 
 #floor1 {
   bottom: 0;
@@ -191,6 +189,17 @@
   }
 }
 
+@keyframes starsMovement {
+  0% {
+    margin-left: -50%;
+    transform: rotate(0deg);
+  }
+  100% {
+    margin-left: 100%;
+    transform: rotate(240deg);
+  }
+}
+
 #cloud1 {
   position: absolute;
   animation-name: cloudsMovement;
@@ -219,6 +228,35 @@
   margin-left: -2000px;
 }
 
+.container_override #star {
+  position: absolute;
+  animation-name: starsMovement;
+  animation-duration: 35s;
+  animation-iteration-count: infinite;
+  margin-left: -100px;
+  margin-top: 50px;
+}
+
+.container_override #star2 {
+  position: absolute;
+  animation-name: starsMovement;
+  animation-duration: 35s;
+  animation-delay: 3s;
+  animation-iteration-count: infinite;
+  margin-left: -100px;
+  margin-top: 110px;
+}
+
+.container_override #star3 {
+  position: absolute;
+  animation-name: starsMovement;
+  animation-duration: 35s;
+  animation-delay: 4s;
+  animation-iteration-count: infinite;
+  margin-left: -100px;
+  margin-top: 80px;
+}
+
 .enemy {
   position: absolute;
   max-width: 300px;
@@ -230,4 +268,10 @@
   height: 50px;
   background-color: red;
   border-radius: 50%;
+}
+
+.coin {
+  position: absolute;
+  width: 30px;
+  height: 30px;
 }

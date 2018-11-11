@@ -3,7 +3,7 @@ $(function() {
   // fireballs = [];
 
   var startx = $(".box").width() - 350;
-  var starty = $(".box").height() - 300;
+  var starty = $(".box").height() - 290;
 
   addEnemy(20, 0, 0);
 
@@ -44,12 +44,12 @@ $(function() {
       //   $("#enemy-" + i).attr("src","images/dinasour-1.png");
       // }
 
-      if (enemies[i].xPos <= 0) {
+      if (enemies[i].xPos <= 1300) {
         enemies[i].left = false;
         $("#enemy-" + i).attr("src","images/dinasour-1.png");
       }
 
-      if (enemies[i].xPos >= $("#floor10").width() - 3) {
+      if (enemies[i].xPos >= $(".box").width() - 300) {
         enemies[i].left = true;
         $("#enemy-" + i).attr("src","images/dinasour.png");
       }
