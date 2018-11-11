@@ -22,10 +22,8 @@
   height: 10px;
   width: 100px;
   background: greenyellow;
-
   position: absolute;
 } */
-
 
 .arrow {
   background-image: url("../images/Arrow.png");
@@ -143,7 +141,6 @@
   margin-left: 2050px;
   position: absolute;
 }
-
 
 .points {
   position: absolute;
