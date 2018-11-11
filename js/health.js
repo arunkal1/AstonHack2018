@@ -3,6 +3,7 @@ $(document).ready(function() {
   var damage = 25;
   var player = $(".player");
   var fireball = $(".fireball");
+  var healthBar = $(".healthBarReducing");
   // console.log(player);
 
   //players top and left coordinates
@@ -30,15 +31,25 @@ $(document).ready(function() {
     if (playerRight == fireballLeft) {
       fireball.remove();
       health = health - damage;
+      healthBar.css({
+        // healthBar.width() = healthBar.width() - 25%;
+      });
       console.log("health is:" + health);
     }
   }
 
-  if (playerHurt) {
-    fireball.append();
+  function respwanFireBall() {
+    if (playerHurt()) {
+      fireball.append();
+    }
   }
 
-  if (health == 0) {
-    console.log("player dead");
+  function playerDead() {
+    if (health == 0) {
+      console.log("player dead");
+    }
   }
+
+  respwanFireBall();
+  playerDead();
 });
