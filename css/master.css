@@ -1,11 +1,3 @@
-.floor {
-  height: 10px;
-  width: 100px;
-  background: greenyellow;
-
-  position: absolute;
-}
-
 #floor1 {
   top: 450px;
   left: 0px;
@@ -71,37 +63,33 @@
   top: 450px;
   left: 1400px;
 }
-.arrow {
-  background: red;
-  position: absolute;
-  width: 20px;
-  height: 10px;
-  /* body { */
+
+body {
   margin: 0;
 }
 
 .container {
   background-image: linear-gradient(#00b4ff, white);
-  height: 100vh;
+  height: 600px;
   position: relative;
-  width: 100vw;
+  width: 1500px;
+  display: none;
+  margin: auto;
 }
 
 .container_override {
   /* Below is for night mode */
-  background-image: linear-gradient(black, #143642);
+  background-image: linear-gradient(black, #143642, grey);
   height: 100vh;
   position: relative;
   width: 100vw;
 }
 
-.container_override #star {
-  position: absolute;
-  animation-name: cloudsMovement;
-  animation-duration: 35s;
-  animation-iteration-count: infinite;
-  margin-left: -1000px;
-  margin-top: -350px;
+.container_start {
+  background-image: linear-gradient(red, white, blue);
+  height: 100vh;
+  position: relative;
+  width: 100vw;
 }
 
 .floor {
@@ -164,6 +152,17 @@
   }
 }
 
+@keyframes starsMovement {
+  0% {
+    margin-left: -50%;
+    transform: rotate(0deg);
+  }
+  100% {
+    margin-left: 110%;
+    transform: rotate(240deg);
+  }
+}
+
 #cloud1 {
   position: absolute;
   animation-name: cloudsMovement;
@@ -204,4 +203,48 @@
   height: 50px;
   background-color: red;
   border-radius: 50%;
+.container_override #star {
+  position: absolute;
+  animation-name: starsMovement;
+  animation-duration: 35s;
+  animation-iteration-count: infinite;
+  margin-left: -100px;
+  margin-top: -350px;
 }
+
+.container_override #star2 {
+  animation-name: starsMovement;
+  animation-duration: 35s;
+  animation-iteration-count: infinite;
+  animation-delay: 3s;
+  padding-top: 200px;
+  position: absolute;
+  margin-left: -1000px;
+  margin-top: -340px;
+}
+
+.container_override #star3 {
+  animation-name: starsMovement;
+  animation-duration: 35s;
+  animation-iteration-count: infinite;
+  animation-delay: 7s;
+  padding-top: 100px;
+  position: absolute;
+  margin-left: -2000px;
+  margin-top: -325px;
+}
+
+.enemy {
+  position: absolute;
+  background-color: white;
+  border: 1px solid red;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+
+/* .coin {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+} */
