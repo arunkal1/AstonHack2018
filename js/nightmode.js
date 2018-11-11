@@ -50,6 +50,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
 
+  // Score:
   // Run each time the player moves
   function checkCoins() {
     // Checks if player has a higher x coordinate than the coin. If true then remove the coin and increase points.
