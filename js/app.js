@@ -8,7 +8,6 @@ $(document).ready(function() {
     for(i=1; i<16; i++){
       floors.push($("#floor"+i))
     }
-    console.log(floors)
   }
   getFloors();
 
@@ -22,7 +21,7 @@ $(document).ready(function() {
 
   var keyPress = [];
 
-  var speed = 3;
+  var speed = 1;
 
   var playerRight;
   var playerLeft;
@@ -67,6 +66,7 @@ $(document).ready(function() {
     if (playerRight <= boardRight) {
       if (keyPress[39]) {
         playerXpos += speed;
+
       }
     }
     if (playerLeft >= boardLeft) {
@@ -106,13 +106,12 @@ $(document).ready(function() {
     }else{
       onFloor = true;
     }
-    console.log(onFloor);
-    if ((onFloor == false )) {
-      yacceleration = 0.08;
+    if ((onFloor == false && pressed == false )) {
+      yacceleration = 0.075;
       setCharPos();
       move();
-      verticalCollisions();
-      floorCollision();
+      // verticalCollisions();
+      // floorCollision();
     }
     verticalCollisions();
     floorCollision();
@@ -153,7 +152,7 @@ $(document).ready(function() {
       jump();
       ypos = playerTop
       jumping = true;
-      yacceleration = 0.08;
+      yacceleration = 0.075
       yvelocity = -4;
       pressed = true;
       onFloor = false;
@@ -190,7 +189,6 @@ $(document).ready(function() {
   }
 
   function floorPosition(){
-    console.log(floors);
     for(floor of floors){
       floorsLeft.push(floor.offset().left);
       floorsTop.push( floor.offset().top);
@@ -198,7 +196,6 @@ $(document).ready(function() {
       floorsRight.push(floor.offset().left + floor.width());
       floorsBott.push(floor.offset().top + floor.height());
     }
-    console.log(floors.length)
   }
 
   function jump() {
@@ -306,7 +303,6 @@ $(document).ready(function() {
   function moveUp(){
 
           clearInterval(jumpInt);
-          console.log("floor")
           yvelocity = 0;
           yacceleration = 0;
           setCharPos();
