@@ -19,6 +19,18 @@
   </head>
   <body>
 
+    <div class="container_start">
+      <script>
+        $(document).ready(function(){
+          $(".btn1").click(function(){
+              $(".container_start").hide();
+              $(".container").show();
+          });
+        });
+      </script>
+      <button class="btn1">Start Game</button>
+    </div>
+
     <div class="container">
       <img src="images/cloud.png" alt="Clouds" height="215" width="215" id="cloud1">
       <img src="images/cloud.png" alt="Clouds" height="150" width="150" id="cloud2">
